@@ -20,6 +20,7 @@ from django.urls import path, include
 '''The only route currently is localhost:3000/admin/'''
 
 urlpatterns = [
+    path('', include('pizza.urls')),
     path('admin/', admin.site.urls),
     path('pizzas/', include('pizza.urls'))
 ]
