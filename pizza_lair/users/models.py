@@ -3,13 +3,13 @@ from django.db import models
 # Create your models here.
 class Users(models.Model):
     name = models.CharField(max_length=255)
-    phoneNumber = models.IntegerField(max_length=7)
+    phoneNumber = models.IntegerField()
     streetName = models.CharField(max_length=255)
     houseNumber = models.IntegerField()
     zipCode = models.IntegerField()
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
-    image = models.CharField(max_lenght=9999)
+    image = models.CharField(max_length=9999)
 
 class Payments(models.Model):
     cardHolder = models.CharField(max_length=255)
