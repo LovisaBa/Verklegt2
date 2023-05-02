@@ -4,8 +4,8 @@ from django.db import models
 
 """class PizzaType(models.Model):
     name = models.CharField(max_length=255)
+    
 class Pizza(models.Model):
-    # add relevant attributes for pizzas.
     name = models.CharField(max_length=255)
     type = models.ForeignKey(PizzaType, on_delete=models.CASCADE)
     price = models.FloatField()
@@ -13,5 +13,5 @@ class Pizza(models.Model):
     toppings = models #??
 
 class PizzaImage(models.Model):
-    menu = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     image = models.CharField(max_length=9999)"""
