@@ -1,18 +1,32 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">REYK</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'pizza_index' %}">Pizzas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Something else</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">REYK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'menu_index' %}">Panta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'menu_index' %}">Matseðill</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Um Okkur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tilboð</a>
+        </li>
+      </ul>
+        <ul class="navbar-nav d-flex flex-row me-1">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white" href="#"><i class="fa fa-fw fa-user-o fa-1x"></i></a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white" href="#"><i class="fa fa-shopping-cart fa-1x"></i></a>
+                </li>
+            </ul>
+    </div>
+  </div>
+</nav>
