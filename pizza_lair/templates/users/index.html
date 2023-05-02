@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>This is the user info page.</h1>
+    <div class="pizza">
+    </div>
+    {% for pizza in pizzas %}
+        <h4>{{ pizza.name }}</h4>
+        <p>{{ pizza.price }} kr.</p>
+    {% endfor %}
+{% endblock %}
