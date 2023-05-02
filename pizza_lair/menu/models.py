@@ -27,9 +27,3 @@ class PizzaIngredients(models.Model):
 
 
 
-
-
-
-
-
-
