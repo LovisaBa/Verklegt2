@@ -16,7 +16,7 @@ class Pizzas(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.CharField(max_length=255, blank=True)
-    image = models.CharField(max_length=9999)
+    image = models.ImageField()
 
     def __str__(self):
         return f"Pizza: {self.name}, ProdId: {self.product_id}"
