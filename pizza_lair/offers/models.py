@@ -36,4 +36,3 @@ class PizzasInOffers(models.Model):
 
     def __str__(self):
         return f"OffId: {self.pizzaOffer}, pizza: {self.pizza}"
-
