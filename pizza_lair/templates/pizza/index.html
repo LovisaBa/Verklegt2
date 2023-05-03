@@ -2,9 +2,10 @@
 
 {% block content %}
     <h1>This is the pizza place. this should become the menu!</h1>
-    <div class="pizza">
+    <div class="pizza-menu">
+
+        {% for pizza in pizzas %}
+            {% include "pizza/_one_pizza.html" with pizza=pizza %}
+        {% endfor %}
     </div>
-    {% for ingredient in ingredients %}
-        {% include "pizza/__one_ingred.html" with ingredient=ingredient %}
-    {% endfor %}
 {% endblock %}
