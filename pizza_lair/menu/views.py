@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from menu.models import *
 
 # Create your views here.
-pizzas = [
-    {'name':'Margarita', 'price':2500},
-    {'name':'Pepperoni', 'price':3000}
-          ]
+
 
 def index(request):
-    return render(request, 'pizza/index.html', context={'pizzas':pizzas})
+    return render(request, 'pizza/index.html', {
+        "ingredients": Ingredients.objects.all()
+    })
+
