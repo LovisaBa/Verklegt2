@@ -14,7 +14,7 @@ class Orders(models.Model):
 
 
 class ProdOrders(models.Model):
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    order = models.ForeignKey(Orders, on_delete=models.CASCADE, default="")
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -14,7 +14,6 @@ class PizzaTypes(models.Model):
 class Pizzas(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    type = models.ForeignKey(PizzaTypes, on_delete=models.CASCADE)
     price = models.IntegerField()
     description = models.CharField(max_length=255, blank=True)
     image = models.CharField(max_length=9999)
