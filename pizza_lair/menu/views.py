@@ -6,6 +6,6 @@ from menu.models import *
 
 def index(request):
     return render(request, 'pizza/index.html', {
-        "ingredients": Ingredients.objects.all()
+        "pizzas": Pizzas.objects.all()
     })
 

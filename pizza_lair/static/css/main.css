@@ -1,3 +1,8 @@
-.pizza{
+.pizza-menu{
     background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}
+.baby-pizza{
+    flex: 0 0 33%;
 }
