@@ -4,5 +4,15 @@
     flex-wrap: wrap;
 }
 .baby-pizza{
-    flex: 0 0 33%;
+    background-color: red;
+    flex: 0 0 32%;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: solid 3px transparent;
+    border-radius: 4px;
 }
