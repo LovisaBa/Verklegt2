@@ -16,3 +16,8 @@
     border: solid 3px transparent;
     border-radius: 4px;
 }
+
+body {
+    padding-bottom: 300px;
+    background-color: grey;
+}

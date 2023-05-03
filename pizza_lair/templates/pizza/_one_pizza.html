@@ -1,6 +1,6 @@
 <div class="baby-pizza">
     <div class="menu-image">
-        <img src="{{ pizza.image }}">
+        <img src="/{{ BASE_DIR }}static/images/{{pizza.image}}" alt="{{ pizza.description }}" width="300px"/>
     </div>
     <div class="menu-name">
         {{ pizza.name }}
