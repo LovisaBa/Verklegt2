@@ -8,7 +8,7 @@ class Orders(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     price = models.IntegerField()
 
-class prodOrders(models.Model):
+class ProdOrders(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
 
 
