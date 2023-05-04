@@ -89,3 +89,14 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.about-us {
+    display: flex;
+}
+.about-child {
+    flex: auto;
+    align-content: space-between;
+}
+.about-img{
+    margin-right: 20px;
+}
