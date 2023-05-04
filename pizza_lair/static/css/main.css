@@ -2,16 +2,17 @@ body {
     padding-top: 100px;
     padding-bottom: 300px;
     background-color: #34363E;
+    color: white;
 }
 
 .pizza-menu{
-    background-color: #282931;
+    background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
 }
 
 .baby-pizza{
-    background-color: red;
+    background-color: #282931;
     flex: 0 0 32%;
     position: relative;
     margin-top: 10px;
@@ -25,7 +26,7 @@ body {
 }
 
 .pizza-detail-child {
-    background-color: red;
+    background-color: #282931;
     flex: 0 0 48%;
     position: relative;
     margin-top: 10px;
