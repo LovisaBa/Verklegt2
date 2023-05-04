@@ -1,11 +1,11 @@
 body {
     padding-top: 100px;
     padding-bottom: 300px;
-    background-color: grey;
+    background-color: #34363E;
 }
 
 .pizza-menu{
-    background-color: aqua;
+    background-color: #282931;
     display: flex;
     flex-wrap: wrap;
 }
