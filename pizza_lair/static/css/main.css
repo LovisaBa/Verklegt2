@@ -1,5 +1,5 @@
 body {
-    padding-bottom: 300px;
+    padding-top: 55px;
     background-color: #34363E;
     color: white;
 }
@@ -8,6 +8,8 @@ body {
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .baby-pizza{
@@ -35,4 +37,25 @@ body {
     text-align: center;
     justify-content: center;
     border-radius: 4px;
+}
+
+.background-img {
+   width: 109%;
+}
+
+#forsidu-mynd {
+    width: 100%;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.text-center {
+    background-color: #282931;
+}
+
+.container-footer {
+    background-color: #34363E;
 }
