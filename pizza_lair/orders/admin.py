@@ -7,5 +7,4 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Orders, AuthorAdmin)
-admin.site.register(ProdOrders, AuthorAdmin)
+admin.site.register(Order, AuthorAdmin)
