@@ -1,8 +1,10 @@
 <div class="baby-pizza">
-    <div class="menu-image">
-        <img src="/{{ BASE_DIR }}static/images/{{pizza.image}}" alt="{{ pizza.description }}" width="300px"/>
-    </div>
-    <div class="menu-name">
-        {{ pizza.name }}
-    </div>
+    <a href="/menu/{{ pizza.id }}" class="font-weight-normal text-reset text-decoration-none">
+        <div class="menu-image">
+            <img src="/{{ BASE_DIR }}static/images/{{pizza.image}}" alt="{{ pizza.description }}" />
+        </div>
+        <div class="menu-name">
+            {{ pizza.name }}
+        </div>
+    </a>
 </div>
