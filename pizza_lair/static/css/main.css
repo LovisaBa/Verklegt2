@@ -2,28 +2,33 @@ body {
     padding-top: 55px;
     background-color: #34363E;
     color: white;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .pizza-menu{
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     margin-bottom: 20px;
-    align-items: center;
+    margin-left: 175px;
+    margin-right: 100px;
+    justify-content: center;
 }
 
 .baby-pizza{
     background-color: #282931;
-    flex: 0 0 32%;
+    flex: 0 0 30%;
     position: relative;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 30px;
+    margin-left: 30px;
     box-sizing: border-box;
     align-items: center;
     text-align: center;
-    justify-content: center;
-    border: solid 3px transparent;
-    border-radius: 4px;
+    justify-content: space-between;
 }
 
 .pizza-detail-child {
@@ -50,12 +55,37 @@ body {
 .container {
     margin: 0;
     padding: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
-.text-center {
+.Copyright {
     background-color: #282931;
+    margin-top: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: xx-small;
 }
 
 .container-footer {
-    background-color: #34363E;
+    background-color: #282931;
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15px;
+}
+
+.Toe {
+    flex: 0 0 30%;
+    padding-left: 200px;
+}
+.Toe p {
+    padding: 0;
+    margin: 0;
+}
+
+.menu-name {
+    font-size: large;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
