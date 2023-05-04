@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the user info page.</h1>
-    <div class="pizza">
-    </div>
-
+    <a href="/users/login" class="font-weight-normal text-reset text-decoration-none">
+        <h3>Login</h3>
+    </a>
+    <a href="/users/create_user" class="font-weight-normal text-reset text-decoration-none">
+        <h3>Create New user</h3>
+    </a>
 {% endblock %}

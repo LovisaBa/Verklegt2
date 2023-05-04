@@ -7,6 +7,6 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Users, AuthorAdmin)
-admin.site.register(Payments, AuthorAdmin)
-admin.site.register(UserPayment, AuthorAdmin)
+admin.site.register(Country, AuthorAdmin)
+admin.site.register(User, AuthorAdmin)
+admin.site.register(Payment, AuthorAdmin)

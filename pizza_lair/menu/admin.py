@@ -7,9 +7,7 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(PizzaTypes, AuthorAdmin)
-admin.site.register(Pizzas, AuthorAdmin)
-admin.site.register(PizzaHasType, AuthorAdmin)
-admin.site.register(Ingredients, AuthorAdmin)
-admin.site.register(PizzaIngredients, AuthorAdmin)
+admin.site.register(PizzaType, AuthorAdmin)
+admin.site.register(Pizza, AuthorAdmin)
+admin.site.register(Ingredient, AuthorAdmin)
 admin.site.register(Drinks, AuthorAdmin)

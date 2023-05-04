@@ -6,11 +6,11 @@ from menu.models import *
 
 def index(request):
     return render(request, 'pizza/index.html', {
-        "pizzas": Pizzas.objects.all()
+        "pizzas": Pizza.objects.all()
     })
 
 
 def get_pizza_by_id(request, id):
     return render(request, 'pizza/pizza_details.html', {
-        'pizza': get_object_or_404(Pizzas, pk=id)
+        'pizza': get_object_or_404(Pizza, pk=id)
     })

@@ -7,7 +7,6 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Offers, AuthorAdmin)
-admin.site.register(Discounts, AuthorAdmin)
-admin.site.register(PizzaOffers, AuthorAdmin)
-admin.site.register(PizzasInOffers, AuthorAdmin)
+admin.site.register(Offer, AuthorAdmin)
+admin.site.register(Discount, AuthorAdmin)
+admin.site.register(PizzaOffer, AuthorAdmin)
