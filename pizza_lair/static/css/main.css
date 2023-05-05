@@ -8,7 +8,7 @@ body {
     flex-direction: column;
 }
 
-.pizza-menu{
+.pizza-menu.offers.discounts {
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@ body {
     justify-content: center;
 }
 
-.baby-pizza{
+.baby-pizza.baby-offer.baby-discount{
     background-color: #282931;
     flex: 0 0 30%;
     position: relative;
@@ -30,6 +30,7 @@ body {
     text-align: center;
     justify-content: space-between;
 }
+
 
 .pizza-detail-child {
     background-color: #282931;
@@ -48,7 +49,7 @@ body {
    width: 109%;
 }
 
-#forsidu-mynd {
+#cover-photo {
     width: 100%;
 }
 
@@ -84,7 +85,7 @@ body {
     margin: 0;
 }
 
-.menu-name {
+.menu-name.offer-info.discount-info {
     font-size: large;
     padding-top: 5px;
     padding-bottom: 5px;

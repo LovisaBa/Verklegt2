@@ -1,0 +1,10 @@
+<div class="baby-discount">
+    <a href="/offers/{{ discount.offer.id }}" class="font-weight-normal text-reset text-decoration-none">
+        <div class="discount-image">
+            <img src="/{{ BASE_DIR }}static/images/{{discount.image}}" alt="{{ discount.description }} " width="310px" />
+        </div>
+        <div class="discount-info">
+            {{ discount.name|upper }}
+        </div>
+    </a>
+</div>

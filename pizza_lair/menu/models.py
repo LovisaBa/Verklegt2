@@ -35,6 +35,7 @@ class Drinks(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     price = models.IntegerField()
+    image = models.ImageField()
 
     def __str__(self):
         return f"{self.name}, ProdId: {self.product_id}"
