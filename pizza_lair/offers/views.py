@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from offers.models import Offer, PizzaOffer, Discount
+from offers.models import PizzaOffer, Discount
 
 # Create your views here.
 
