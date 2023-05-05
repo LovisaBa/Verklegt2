@@ -19,6 +19,28 @@ body {
     justify-content: center;
 }
 
+.offers {
+    background-color: #34363e;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 175px;
+    margin-right: 100px;
+    justify-content: center;
+}
+
+.discounts {
+    background-color: #34363e;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 175px;
+    margin-right: 100px;
+    justify-content: center;
+}
+
 .baby-pizza{
     background-color: #282931;
     flex: 0 0 30%;
@@ -31,6 +53,29 @@ body {
     justify-content: space-between;
 }
 
+.baby-offer {
+    background-color: #282931;
+    flex: 0 0 30%;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.baby-discount {
+    background-color: #282931;
+    flex: 0 0 30%;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
 
 .pizza-detail-child {
     background-color: #282931;
@@ -85,7 +130,7 @@ body {
     margin: 0;
 }
 
-.menu-name.offer-info.discount-info {
+.menu-name {
     font-size: large;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -99,5 +144,6 @@ body {
     align-content: space-between;
 }
 .about-img{
-    margin-right: 20px;
+    margin-right: 50px;
 }
+
