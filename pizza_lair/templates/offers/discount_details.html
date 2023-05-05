@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="discount-info">
+        <div class="discount-detail-child baby-discount">
+                <img src="/{{ BASE_DIR }}static/images/{{discount.image}}" class="discount-image" alt="{{ discount.description }}"/>
+        </div>
+        <div class="discount-child">
+            <h1>{{ discount.name }}</h1>
+            <p>{{ discount.description }}</p>
+            <p>{{ discount.price }} kr.</p>
+        </div>
+    </div>
+{% endblock %}

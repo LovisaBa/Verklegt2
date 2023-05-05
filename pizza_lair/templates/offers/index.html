@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the offers page.</h1>
-    <div class="pizza">
+    <div class="offers">
+        {% for offer in offers %}
+            {% include "offers/_one_offer.html" with offfer=offer %}
+        {% endfor %}
     </div>
-    {% for pizza in pizzas %}
-        <h4>{{ pizza.name }}</h4>
-        <p>{{ pizza.price }} kr.</p>
-    {% endfor %}
+    <div class="discounts">
+        {% for discount in discounts %}
+            {% include "offers/_one_discount.html" with discount=discount %}
+        {% endfor %}
+    </div>
 {% endblock %}
