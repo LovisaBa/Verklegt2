@@ -10,4 +10,4 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(PizzaType, AuthorAdmin)
 admin.site.register(Pizza, AuthorAdmin)
 admin.site.register(Ingredient, AuthorAdmin)
-admin.site.register(Drinks, AuthorAdmin)
+admin.site.register(Drink, AuthorAdmin)
