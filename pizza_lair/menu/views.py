@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from django.shortcuts import render,get_object_or_404
-from .models import Pizza, Drinks
+from django.shortcuts import render, get_object_or_404
+from .models import Pizza, Drink
 
 # Create your views here.
 
@@ -16,7 +16,7 @@ def index(request):
         return JsonResponse({ 'data': pizzas })
     return render(request, 'pizza/index.html', {
         "pizzas": Pizza.objects.all().order_by('name'),
-        "drinks": Drinks.objects.all().order_by('name')
+        "drinks": Drink.objects.all().order_by('name')
     })
 
 

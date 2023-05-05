@@ -31,7 +31,7 @@ class Pizza(models.Model):
         return f"Pizza: {self.name}, ProdId: {self.product_id}"
 
 
-class Drinks(models.Model):
+class Drink(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     price = models.IntegerField()
