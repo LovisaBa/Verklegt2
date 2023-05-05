@@ -1,5 +1,5 @@
-from django.shortcuts import render,get_object_or_404
-from menu.models import *
+from django.shortcuts import render, get_object_or_404
+from menu.models import Pizza
 
 # Create your views here.
 
