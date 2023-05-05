@@ -29,9 +29,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('#vegan').on('click', function(f) {
+    $('.filter-btns').on('click', function(f) {
         f.preventDefault();
-        let filterType = (f.target.id);
+        let filterType = $(this).attr('id');
         $.ajax({
             url: '/menu/?pizza_filter=' + filterType,
             type: 'GET',

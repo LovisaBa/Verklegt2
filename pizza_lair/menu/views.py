@@ -8,7 +8,7 @@ from .models import Pizza, Drinks
 def index(request):
     if 'pizza_filter' in request.GET:
         pizza_filter = request.GET['pizza_filter']
-        pizzas = list(Pizza.objects.filter(PizzaType__icontains=pizza_filter).values())
+        pizzas = list(Pizza.objects.filter(type__type__icontains=pizza_filter).values())
         return JsonResponse({ 'data': pizzas })
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
