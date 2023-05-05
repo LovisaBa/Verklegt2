@@ -6,11 +6,22 @@
         <div class="input-group-btn">
             <button type="button" id="search-btn" class="btn btn-default">Search</button>
         </div>
+        <div class="filter-group-btns">
+            <button type="button" id="2">Vegan</button>
+        </div>
     </div>
+    <h1>Pizzas</h1>
     <div class="pizza-menu">
 
         {% for pizza in pizzas %}
             {% include "pizza/_one_pizza.html" with pizza=pizza %}
+        {% endfor %}
+    </div>
+    <h1>Drinks</h1>
+    <div class="pizza-menu">
+
+        {% for drink in drinks %}
+            {% include "pizza/_one_drink.html" with drink=drink %}
         {% endfor %}
     </div>
 {% endblock %}
