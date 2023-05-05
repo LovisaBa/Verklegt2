@@ -9,11 +9,19 @@ def index(request):
     if 'pizza_filter' in request.GET:
         pizza_filter = request.GET['pizza_filter']
         pizzas = list(Pizza.objects.filter(type__type__icontains=pizza_filter).values())
-        return JsonResponse({ 'data': pizzas })
+        return JsonResponse({'data': pizzas})
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         pizzas = list(Pizza.objects.filter(name__icontains=search_filter).values())
-        return JsonResponse({ 'data': pizzas })
+        return JsonResponse({'data': pizzas})
+    if 'order_by' in request.GET:
+        order_by = request.GET['order_by']
+        if order_by == 'order_by_price':
+            pizzas_by_price = list(Pizza.objects.all().values().order_by('price'))
+            return JsonResponse({'data': pizzas_by_price})
+        elif order_by == 'order_by_name':
+            pizzas_by_name = Pizza.objects.all().order_by('name')
+            return JsonResponse({'data': pizzas_by_name})
     return render(request, 'pizza/index.html', {
         "pizzas": Pizza.objects.all().order_by('name'),
         "drinks": Drink.objects.all().order_by('name')
