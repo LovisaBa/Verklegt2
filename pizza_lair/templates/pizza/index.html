@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="input-group">
+        <input type="search" class="form-control" id="search-box" placeholder="Search.." />
+        <div class="input-group-btn">
+            <button type="button" id="search-btn" class="btn btn-default">Search</button>
+        </div>
+    </div>
     <div class="pizza-menu">
 
         {% for pizza in pizzas %}
