@@ -8,5 +8,5 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Country, AuthorAdmin)
-admin.site.register(User, AuthorAdmin)
+admin.site.register(Profile, AuthorAdmin)
 admin.site.register(Payment, AuthorAdmin)
