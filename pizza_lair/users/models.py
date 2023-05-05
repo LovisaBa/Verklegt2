@@ -10,7 +10,7 @@ class Country(models.Model):
         return f"{self.country}"
 
 
-class User(models.Model):
+class Profile(models.Model):
     name = models.CharField(max_length=255)
     phoneNumber = models.IntegerField()
     streetName = models.CharField(max_length=255)
