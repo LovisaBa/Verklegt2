@@ -14,7 +14,10 @@ class Offer(models.Model):
 
 class Discount(models.Model):
     offer = models.OneToOneField(Offer, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
     discount = models.FloatField()
+    image = models.ImageField()
 
     def __str__(self):
         return f"OffId: {self.offer_id}, Discount:{self.discount}"
@@ -25,7 +28,8 @@ class PizzaOffer(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     price = models.IntegerField()
-    pizzas = models.ManyToManyField(Pizza)
+    pizzas = models.ManyToManyField(Pizza, blank=True)
+    image = models.ImageField()
 
     def __str__(self):
         return f"OffId: {self.offer_id}, Name: {self.name}"

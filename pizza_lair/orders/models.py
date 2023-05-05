@@ -8,7 +8,7 @@ from users.models import User
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, blank=True)
 
     def __str__(self):
         return f"User: {self.user}"
