@@ -27,6 +27,6 @@ def get_pizza_by_id(request, id):
 
 
 def get_drink_by_id(request, id):
-    return render(request, 'pizza/pizza_details.html', {
-        'pizza': get_object_or_404(Pizza, pk=id)
+    return render(request, 'pizza/drink_details.html', {
+        'drink': get_object_or_404(Drink, pk=id)
     })
