@@ -8,7 +8,7 @@ class UserCreateForm(ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['id']
+        exclude = ['id', 'users']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'PhoneNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
