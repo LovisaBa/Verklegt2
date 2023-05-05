@@ -5,8 +5,16 @@ from menu.models import Pizza
 # Create your models here.
 
 
+class OffType(models.Model):
+    type = models.TextField(max_length=255)
+
+    def __str__(self):
+        return f"{self.type}"
+
+
 class Offer(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    type = models.ForeignKey(OffType, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"OffId: {self.id}, ProdId: {self.product_id}"

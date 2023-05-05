@@ -10,3 +10,4 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Offer, AuthorAdmin)
 admin.site.register(Discount, AuthorAdmin)
 admin.site.register(PizzaOffer, AuthorAdmin)
+admin.site.register(OffType, AuthorAdmin)
