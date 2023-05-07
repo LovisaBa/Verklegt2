@@ -24,7 +24,7 @@ def profile(request):
         form = ProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
             profile = form.save(commit=False)
-            profile.name = request.name
+            profile.user = request.user
             profile.save()
             return redirect('profile')
     return render(request, 'users/profile.html', {
