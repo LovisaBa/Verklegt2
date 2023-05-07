@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from users.forms.user_form import UserCreateForm
+from users.forms.user_form import ProfileForm
 from users.models import Profile
 
 # Create your views here.
@@ -19,16 +19,16 @@ def create_user(request):
 
 
 def profile(request):
-    user_profile = Profile.objects.filter(users=request.users).first()
+    profile = Profile.objects.filter(name=request.user).first()
     if request.method == 'POST':
-        form = UserCreateForm(instance=user_profile, data=request.POST)
+        form = ProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.user = request.user
-            user_profile.save()
+            profile = form.save(commit=False)
+            profile.name = request.name
+            profile.save()
             return redirect('profile')
-    return render(request, 'users/user_profile.html', {
-        'form': UserCreateForm(instance=user_profile)
+    return render(request, 'users/profile.html', {
+        'form': ProfileForm(instance=profile)
     })
 
 

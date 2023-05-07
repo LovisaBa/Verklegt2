@@ -3,12 +3,12 @@ from django import forms
 from users.models import Profile
 
 
-class UserCreateForm(ModelForm):
+class ProfileForm(ModelForm):
     image = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Profile
-        exclude = ['id', 'users']
+        exclude = ['id', 'name']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'PhoneNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
