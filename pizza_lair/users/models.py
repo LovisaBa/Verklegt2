@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -11,7 +12,7 @@ class Country(models.Model):
 
 
 class Profile(models.Model):
-    name = models.CharField(max_length=255)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNumber = models.IntegerField()
     streetName = models.CharField(max_length=255)
     houseNumber = models.IntegerField()
@@ -21,7 +22,7 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg')
 
     def __str__(self):
-        return f"Name: {self.name}, Number: {self.phoneNumber}"
+        return f"Name: {self.user.username}, Number: {self.phoneNumber}"
 
 
 class Payment(models.Model):
