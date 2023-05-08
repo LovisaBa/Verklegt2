@@ -11,7 +11,10 @@
                     <li class="mb-4"> Price: {{ drink.price }} kr.</li>
                </ul>
             </div>
-            <button class="btn btn-dark mt-3" style="background-color:#282931">Add to cart</button>
+            <form action="{% url 'add_to_cart' drink.product_id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-dark mt-3" style="background-color:#282931">Add to cart</button>
+            </form>
         </div>
     </div>
 {% endblock %}
