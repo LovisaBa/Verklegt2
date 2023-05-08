@@ -1,14 +1,12 @@
 from django.forms import ModelForm, widgets
-from django import forms
 from users.models import Profile
 
 
-class UserCreateForm(ModelForm):
-    image = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+class ProfileForm(ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['id']
+        exclude = ['id', 'name']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'PhoneNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
@@ -16,5 +14,6 @@ class UserCreateForm(ModelForm):
             'HouseNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
             'ZipCode': widgets.NumberInput(attrs={'class': 'form-control'}),
             'City': widgets.TextInput(attrs={'class': 'form-control'}),
-            'Country': widgets.Select(attrs={'class': 'form-control'})
+            'Country': widgets.Select(attrs={'class': 'form-control'}),
+            'image': widgets.ClearableFileInput(attrs={'class': 'form-control'})
         }
