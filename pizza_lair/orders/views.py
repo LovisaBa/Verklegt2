@@ -10,19 +10,19 @@ from main.models import Product
 def index(request):
     return render(request, 'orders/index.html')
 
-def add_to_cart(request, pk):
-    product = get_object_or_404(Product, pk = pk)
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
-        user = request.user,
-        ordered = False
+        price=1,
     )
-    fetched_order = Order.objects.filter(user=request.user, ordered= False)
+    fetched_order = Order.objects.filter(user=request.user, ordered=False)
 
     if fetched_order.exists():
         order = fetched_order[0]
 
-        if order.product.filter(product__pk = product.pk).exists():
+        if order.product.filter(product__pk=product.pk).exists():
             order_item.quantity += 1
             order_item.save()
             messages.info(request, "Quantity increased")
