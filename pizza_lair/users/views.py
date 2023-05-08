@@ -19,7 +19,7 @@ def create_user(request):
 
 
 def profile(request):
-    profile = Profile.objects.filter(name=request.user).first()
+    profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
         if form.is_valid():

@@ -6,9 +6,8 @@ class ProfileForm(ModelForm):
 
     class Meta:
         model = Profile
-        exclude = ['id', 'name']
+        exclude = ['id', 'user']
         widgets = {
-            'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'PhoneNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
             'StreetName': widgets.TextInput(attrs={'class': 'form-control'}),
             'HouseNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
