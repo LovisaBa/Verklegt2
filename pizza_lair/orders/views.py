@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView
 from django.contrib import messages
+from menu.models import Pizza, Drink
+from offers.models import Offer, PizzaOffer
 from .models import *
 from main.models import Product
 
@@ -11,8 +12,15 @@ def index(request):
     return render(request, 'orders/index.html')
 
 
-def get_product_price(product_id):
-    pass
+def get_product_price(prod_id):
+    product = Product.objects.get(pk=prod_id)
+    if product.type.type == "Pizza":
+        return Pizza.objects.get(product_id=prod_id).price
+    if product.type.type == "Offer":
+        off_id = Offer.objects.get(product_id=prod_id)
+        return PizzaOffer.objects.get(offer_id=off_id).price
+    else:
+        return Drink.objects.get(product_id=prod_id).price
 
 
 def add_to_cart(request, product_id):
