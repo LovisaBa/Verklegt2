@@ -19,7 +19,7 @@ class Profile(models.Model):
     zipCode = models.IntegerField()
     city = models.CharField(max_length=255)
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
-    image = models.CharField(max_length=9999, default='http://127.0.0.1:8000/media/default.jpg')
+    image = models.CharField(max_length=9999, default='https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg')
 
     def __str__(self):
         return f"Name: {self.user.username}, Number: {self.phoneNumber}"
