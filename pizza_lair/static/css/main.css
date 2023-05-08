@@ -13,7 +13,7 @@ body {
     margin-top: 20px;
 }
 
-.pizza-menu, .drink-menu, .offers, .discounts {
+.pizza-menu, .drink-menu, .offers, .discounts, .profile-div {
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
 }
 
-.pizza-detail-child, .drink-detail-child {
+.pizza-detail-child, .drink-detail-child, .right-hand, .left-hand {
     background-color: #282931;
     flex: 0 0 48%;
     position: relative;
@@ -130,30 +130,21 @@ body {
  }
 
 .filter-btns {
+    margin-left: 5px;
     border: none;
-    border-radius: 200px;
-    padding-top: 5px;
-}
-
-.filter-btns:hover {
-   background-color: darkgray;
+    border-radius: 5px;
 }
 
 .orderby-btn {
-    padding-top: 5px;
     border: none;
-    border-radius: 200px;
-    padding-left: 10px;
-}
-
-.orderby-btn:hover {
-    background-color: darkgray;
+    margin-left: 5px;
+    border-radius: 5px;
 }
 
 h5 {
     margin-left: 2px;
     font-size: 15px;
-    padding-top: 7px;
+    padding-top: 10px;
     padding-left: 200px;
 }
 
@@ -161,3 +152,26 @@ h5 {
     padding-left: 150px;
 }
 
+.right-hand, .left-hand {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+#profile-img {
+    height: 320px;
+    width: 320px;
+    margin-top: 60px;
+}
+
+button, .btn {
+    background-color: #282931;
+}
+
+#form-btn {
+    width: 200px;
+    background-color: #34363E;
+}
+
+.form {
+    width: 350px;
+}
