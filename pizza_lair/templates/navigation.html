@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav mb-1 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-white text-uppercase" href="{% url 'menu_index' %}">Menu</a>
+          <a class="nav-link text-white text-uppercase" href="{% url 'menu_index' %}">MENU</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white text-uppercase" href="/about">About Us</a>
+          <a class="nav-link text-white text-uppercase" href="/about">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white text-uppercase" href="{% url 'offers_index' %}">Offers</a>
+          <a class="nav-link text-white text-uppercase" href="{% url 'offers_index' %}">OFFERS</a>
         </li>
       </ul>
     </div>
@@ -21,17 +21,17 @@
        <ul class="navbar-nav ml-auto">
        {% if user.is_authenticated %}
         <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link text-white text-uppercase" href="{% url 'profile' %}">Profile</a>
+            <a class="nav-link text-white text-uppercase" href="{% url 'profile' %}">PROFILE</a>
         </li>
         <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link text-white text-uppercase" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link text-white text-uppercase" href="{% url 'logout' %}">LOGOUT</a>
         </li>
         {% else %}
         <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link text-white text-uppercase" href="{% url 'login' %}">Login</a>
+            <a class="nav-link text-white text-uppercase" href="{% url 'login' %}">LOGIN</a>
         </li>
         <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link text-white text-uppercase" href="{% url 'create_user' %}">Register</a>
+            <a class="nav-link text-white text-uppercase" href="{% url 'create_user' %}">REGISTER</a>
         </li>
        {% endif %}
         <li class="nav-item me-3 me-lg-0">
