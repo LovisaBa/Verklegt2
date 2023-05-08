@@ -22,17 +22,17 @@ def add_to_cart(request, product_id):
     if fetched_order.exists():
         order = fetched_order[0]
 
-        if order.product.filter(product__pk=product.pk).exists():
+        if order.items.filter(product__pk=product.pk).exists():
             order_item.quantity += 1
             order_item.save()
             messages.info(request, "Quantity increased")
-            return redirect('menu/')
+            return redirect('/')
         else:
             order.items.add(order_item)
             messages.info(request, "Item added")
-            return redirect('menu/')
+            return redirect('/')
     else:
         order = Order.objects.create(user=request.user)
         order.items.add(order_item)
         messages.info(request, "Item added")
-        return redirect('menu/')
+        return redirect('/')
