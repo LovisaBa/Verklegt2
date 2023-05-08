@@ -38,13 +38,13 @@ def add_to_cart(request, product_id):
             order_item.quantity += 1
             order_item.save()
             messages.info(request, "Quantity increased")
-            return redirect('/')
+            return redirect('/menu/')
         else:
             order.items.add(order_item)
             messages.info(request, "Item added")
-            return redirect('/')
+            return redirect('/menu/')
     else:
         order = Order.objects.create(user=request.user)
         order.items.add(order_item)
         messages.info(request, "Item added")
-        return redirect('/')
+        return redirect('/menu/')
