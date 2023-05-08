@@ -20,7 +20,7 @@ def index(request):
             pizzas_by_price = list(Pizza.objects.all().values().order_by('price'))
             return JsonResponse({'data': pizzas_by_price})
         elif order_by == 'order_by_name':
-            pizzas_by_name = Pizza.objects.all().order_by('name')
+            pizzas_by_name = list(Pizza.objects.all().values().order_by('name'))
             return JsonResponse({'data': pizzas_by_name})
     return render(request, 'pizza/index.html', {
         "pizzas": Pizza.objects.all().order_by('name'),
