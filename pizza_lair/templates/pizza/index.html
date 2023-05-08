@@ -1,44 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Search form -->
-<!-- Search form -->
-
 
     <div class="input-group">
-<form class="d-flex">
-   <input type="search" class="form-control" id="search-box" placeholder="Search.." />
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-    </form>
-    <!--<div class="input-group">
-        <input type="search" class="form-control" id="search-box" placeholder="Search.." />
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn btn-dark">Search</button>
-        </div>
-    --><h4>Filter by: </h4>
+        <form class="d-flex">
+            <input type="search" class="form-control" id="search-box" placeholder="Search.." />
+                <div class="input-group-btn">
+                    <button type="button" id="search-btn" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+        </form>
+        <h5>Filter by: </h5>
         <div class="filter-group-btns">
             <button class="filter-btns" style="background-color:#282931" type="button" id="Spicy"><i class="fa-solid fa-pepper-hot"></i></button>
             <button class="filter-btns" style="background-color:#282931" type="button" id="Vegan"><i class="fa-solid fa-seedling"></i></button>
             <button class="filter-btns" style="background-color:#282931" type="button" id="Vegetarian"><i class="fa-solid fa-cheese"></i></button>
             <button class="filter-btns" style="background-color:#282931" type="button" id="Popular"><i class="fa-solid fa-trophy"></i></button>
         </div>
-        <h4>Order by: </h4>
+        <h5>Order by: </h5>
         <div class="order-by-btns">
             <button class="orderby-btn" style="background-color:#282931" type="button" id="price"><i class="fa-solid fa-tag"></i></button>
             <button class="orderby-btn" style="background-color:#282931" type="button" id="name"><i class="fa-solid fa-arrow-down-a-z"></i></button>
             <button class="orderby-btn" style="background-color:#282931" type="button" id="name"><i class="fa-solid fa-arrows-rotate"></i></button>
         </div>
     </div>
-    <h1>Pizzas</h1>
+    <h1 id="pizza-header">Pizzas</h1>
     <div class="pizza-menu">
 
         {% for pizza in pizzas %}
             {% include "pizza/_one_pizza.html" with pizza=pizza %}
         {% endfor %}
     </div>
-    <h1>Drinks</h1>
+    <h1 id="pizza-header">Drinks</h1>
     <div class="drink-menu">
 
         {% for drink in drinks %}
