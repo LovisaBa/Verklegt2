@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from users.models import Profile
 from main.models import Product
@@ -15,7 +16,7 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     ordered = models.BooleanField(default=False)
 
