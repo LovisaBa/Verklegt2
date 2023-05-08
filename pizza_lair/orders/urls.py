@@ -5,5 +5,5 @@ from .views import add_to_cart
 urlpatterns = [
     # http://localhost:8000/pizzas
     path('', views.index, name="orders_index"),
-    path('add-to-cart/<int:id>/', add_to_cart, name='add_to_cart')
+    path('add-to-cart/<int:product_id>/', add_to_cart, name='add_to_cart')
 ]
