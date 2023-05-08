@@ -11,11 +11,15 @@ def index(request):
     return render(request, 'orders/index.html')
 
 
+def get_product_price(product_id):
+    pass
+
+
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
-        price=1,
+        price=get_product_price(product_id),
     )
     fetched_order = Order.objects.filter(user=request.user, ordered=False)
 
