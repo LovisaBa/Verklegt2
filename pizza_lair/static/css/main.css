@@ -8,6 +8,11 @@ body {
     flex-direction: column;
 }
 
+h1{
+    padding-left: 700px;
+    margin-top: 20px;
+}
+
 .pizza-menu, .drink-menu, .offers, .discounts {
     background-color: #34363e;
     display: flex;
@@ -100,4 +105,56 @@ body {
 .about-img{
     margin-right: 50px;
 }
+
+.input-group {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+    background:#282931;
+    margin-top: 30px;
+    padding-left:215px;
+
+
+
+}
+
+ i {
+  color: white;
+}
+ 
+.filter-group-btns {
+     position: relative;
+     padding-left: 5px;
+ }
+
+.filter-btns {
+    border: none;
+    border-radius: 200px;
+    padding-top: 5px;
+}
+
+.filter-btns:hover {
+   background-color: darkgray;
+}
+
+.orderby-btn {
+    padding-top: 5px;
+    border: none;
+    border-radius: 200px;
+    padding-left: 10px;
+}
+
+.orderby-btn:hover {
+    background-color: darkgray;
+}
+
+h4 {
+    margin-left: 2px;
+    font-size: 15px;
+    padding-top: 7px;
+    padding-left: 200px;
+}
+
+
 
