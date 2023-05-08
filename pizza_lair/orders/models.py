@@ -9,6 +9,7 @@ class Order(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     price = models.IntegerField()
     products = models.ManyToManyField(Product, blank=True)
+    payed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"User: {self.user}"
