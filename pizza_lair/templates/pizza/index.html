@@ -1,21 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Search form -->
+<!-- Search form -->
+
+
     <div class="input-group">
+<form class="d-flex">
+   <input type="search" class="form-control" id="search-box" placeholder="Search.." />
+        <div class="input-group-btn">
+            <button type="button" id="search-btn" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    </form>
+    <!--<div class="input-group">
         <input type="search" class="form-control" id="search-box" placeholder="Search.." />
         <div class="input-group-btn">
-            <button type="button" id="search-btn">Search</button>
+            <button type="button" id="search-btn" class="btn btn-dark">Search</button>
         </div>
+    --><h4>Filter by: </h4>
         <div class="filter-group-btns">
-            <button class="filter-btns" type="button" id="Spicy">Spicy</button>
-            <button class="filter-btns" type="button" id="Vegan">Vegan</button>
-            <button class="filter-btns" type="button" id="Vegetarian">Vegetarian</button>
-            <button class="filter-btns" type="button" id="Popular">Popular</button>
+            <button class="filter-btns" style="background-color:#282931" type="button" id="Spicy"><i class="fa-solid fa-pepper-hot"></i></button>
+            <button class="filter-btns" style="background-color:#282931" type="button" id="Vegan"><i class="fa-solid fa-seedling"></i></button>
+            <button class="filter-btns" style="background-color:#282931" type="button" id="Vegetarian"><i class="fa-solid fa-cheese"></i></button>
+            <button class="filter-btns" style="background-color:#282931" type="button" id="Popular"><i class="fa-solid fa-trophy"></i></button>
         </div>
+        <h4>Order by: </h4>
         <div class="order-by-btns">
-            <button class="orderby-btn" type="button" id="price">Order by price</button>
-            <button class="orderby-btn" type="button" id="name">Order by name</button>
-            <button class="orderby-btn" type="button" id="name">Refresh filters</button>
+            <button class="orderby-btn" style="background-color:#282931" type="button" id="price"><i class="fa-solid fa-tag"></i></button>
+            <button class="orderby-btn" style="background-color:#282931" type="button" id="name"><i class="fa-solid fa-arrow-down-a-z"></i></button>
+            <button class="orderby-btn" style="background-color:#282931" type="button" id="name"><i class="fa-solid fa-arrows-rotate"></i></button>
         </div>
     </div>
     <h1>Pizzas</h1>
