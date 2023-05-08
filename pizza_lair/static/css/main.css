@@ -8,8 +8,8 @@ body {
     flex-direction: column;
 }
 
-h1{
-    padding-left: 700px;
+#pizza-header{
+    padding-left: 650px;
     margin-top: 20px;
 }
 
@@ -23,6 +23,7 @@ h1{
     margin-right: 100px;
     justify-content: center;
 }
+
 
 .baby-pizza, .baby-drink, .baby-offer, .baby-discount {
     background-color: #282931;
@@ -114,8 +115,8 @@ h1{
     background:#282931;
     margin-top: 30px;
     padding-left:215px;
-
-
+    width: 120%;
+    overflow-x: hidden;
 
 }
 
@@ -149,12 +150,14 @@ h1{
     background-color: darkgray;
 }
 
-h4 {
+h5 {
     margin-left: 2px;
     font-size: 15px;
     padding-top: 7px;
     padding-left: 200px;
 }
 
-
+.container-about-us {
+    padding-left: 150px;
+}
 
