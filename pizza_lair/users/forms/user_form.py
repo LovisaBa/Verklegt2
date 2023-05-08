@@ -14,5 +14,5 @@ class ProfileForm(ModelForm):
             'ZipCode': widgets.NumberInput(attrs={'class': 'form-control'}),
             'City': widgets.TextInput(attrs={'class': 'form-control'}),
             'Country': widgets.Select(attrs={'class': 'form-control'}),
-            'image': widgets.ClearableFileInput(attrs={'class': 'form-control'})
+            'image': widgets.TextInput(attrs={'class': 'form-control'})
         }
