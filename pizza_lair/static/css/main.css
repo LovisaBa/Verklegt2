@@ -8,7 +8,7 @@ body {
     flex-direction: column;
 }
 
-#pizza-header{
+#pizza-header, #drink-header{
     padding-left: 650px;
     margin-top: 20px;
 }
