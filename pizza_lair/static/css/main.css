@@ -192,13 +192,14 @@ button, .btn ,.container-sm{
     margin-left: 40px;
 }
 
-h2 {
+h6 {
     padding-left:520px;
     margin-top: 50px;
+    font-size: 30px;
 
 }
 
-h4 {
+h7 {
     margin-top: 50px;
     padding-left: 580px;
     font-size: 30px;
