@@ -6,11 +6,18 @@
             <form class="form row" method="post">
                 {% csrf_token %}
                 {{ form }}
+                <div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                </div>
                 <input id="form-btn" type="submit" class="btn btn-dark" value="update"/>
             </form>
         </div>
         <div class="left-hand row">
-            <img id="profile-img" src="{{ user.profile.image }}" class="image" />
+            <img id="profile-img" src="{{ user.profile.image }}" alt="Profile image for user" class="image" />
         </div>
     </div>
 {% endblock %}
