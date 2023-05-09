@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -14,7 +16,10 @@ class Country(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    phoneNumber = models.PositiveIntegerField()
+    phoneNumber = models.PositiveIntegerField(validators=[
+        MaxValueValidator(9999999, "The Phone number cannot be longer than 7 characters"),
+        MinValueValidator(1000000, "The Phone number must be at least 7 characters long")]
+    )
     streetName = models.CharField(max_length=255)
     houseNumber = models.PositiveIntegerField()
     zipCode = models.PositiveIntegerField()
