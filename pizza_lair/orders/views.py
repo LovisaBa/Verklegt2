@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from menu.models import Pizza, Drink
-from offers.models import Offer, PizzaOffer
+from offers.models import Offer, PizzaOffer, Discount
 from .models import *
 from main.models import Product
 
@@ -29,22 +29,33 @@ def add_to_cart(request, product_id):
         product=product,
         price=get_product_price(product_id),
     )
-    fetched_order = Order.objects.filter(user=request.user, ordered=False)
+    user_order = Order.objects.filter(user=request.user, ordered=False)
 
-    if fetched_order.exists():
-        order = fetched_order[0]
-
-        if order.items.filter(product__pk=product.pk).exists():
-            order_item.quantity += 1
-            order_item.save()
-            messages.info(request, "Quantity increased")
-            return redirect('/menu/')
-        else:
-            order.items.add(order_item)
-            messages.info(request, "Item added")
-            return redirect('/menu/')
+    if user_order.exists():
+        order = user_order[0]
     else:
         order = Order.objects.create(user=request.user)
+
+    if order.items.filter(product__pk=product.pk).exists():
+        order_item.quantity += 1
+        order_item.save()
+        messages.info(request, "Quantity increased")
+    else:
         order.items.add(order_item)
         messages.info(request, "Item added")
-        return redirect('/menu/')
+    return redirect('/menu/')
+
+
+def add_discount(request, discount_id):
+    new_discount = get_object_or_404(Discount, pk=discount_id)
+    user_orders = Order.objects.filter(user=request.user, ordered=False)
+
+    if user_orders.exists():
+        order = user_orders[0]
+    else:
+        order = Order.objects.create(user=request.user)
+
+    setattr(order, 'Discount', new_discount.discount)
+    order.save()
+
+    return redirect('/offers/')
