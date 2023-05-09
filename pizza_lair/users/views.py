@@ -16,6 +16,7 @@ def create_user(request):
             return redirect('login')
         else:
             messages.error(request, 'There was an error creating the user.')
+            return redirect('login')
     return render(request, 'users/create_user.html', {
         'form': UserCreationForm()
     })
@@ -33,6 +34,7 @@ def profile(request):
             return redirect('profile')
         else:
             messages.error(request, 'There was an error updating the user.')
+            return redirect('profile')
     return render(request, 'users/profile.html', {
         'form': ProfileForm(instance=user_profile)
     })
