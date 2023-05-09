@@ -23,18 +23,26 @@ def get_product_price(prod_id):
         return Drink.objects.get(product_id=prod_id).price
 
 
+def get_order(request):
+    user_order = Order.objects.filter(user=request.user, ordered=False)
+
+    if user_order.exists():
+        return user_order[0]
+    else:
+        order = Order.objects.create(user=request.user)
+        # TODO HELP
+        order.items.clear()
+        order.save()
+        return order
+
+
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
         price=get_product_price(product_id),
     )
-    user_order = Order.objects.filter(user=request.user, ordered=False)
-
-    if user_order.exists():
-        order = user_order[0]
-    else:
-        order = Order.objects.create(user=request.user)
+    order = get_order(request)
 
     if order.items.filter(product__pk=product.pk).exists():
         order_item.quantity += 1
@@ -48,12 +56,7 @@ def add_to_cart(request, product_id):
 
 def add_discount(request, discount_id):
     new_discount = get_object_or_404(Discount, pk=discount_id)
-    user_orders = Order.objects.filter(user=request.user, ordered=False)
-
-    if user_orders.exists():
-        order = user_orders[0]
-    else:
-        order = Order.objects.create(user=request.user)
+    order = get_order(request)
     order.discount = new_discount.discount
     order.save()
 
