@@ -19,6 +19,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     ordered = models.BooleanField(default=False)
+    discount = models.IntegerField(default=0)
 
     def get_price(self):
         total = 0
@@ -26,5 +27,11 @@ class Order(models.Model):
             total += item.price
         return total
 
+    def get_discount_price(self):
+        total = 0
+        for item in self.items.all():
+            total += item.price
+        return total * (1 - self.discount)
+
     def __str__(self):
-        return f"User: {self.user}"
+        return f"{self.id} User: {self.user} Ordered: {self.ordered}"
