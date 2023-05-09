@@ -27,13 +27,12 @@ def get_order(request):
     user_order = Order.objects.filter(user=request.user, ordered=False)
 
     if user_order.exists():
-        return user_order[0]
+        order = user_order[0]
+        order.save()
     else:
         order = Order.objects.create(user=request.user)
-        # TODO HELP
-        order.items.clear()
         order.save()
-        return order
+    return order
 
 
 def add_to_cart(request, product_id):
@@ -47,9 +46,12 @@ def add_to_cart(request, product_id):
     if order.items.filter(product__pk=product.pk).exists():
         order_item.quantity += 1
         order_item.save()
+        order.save()
         messages.info(request, "Quantity increased")
     else:
         order.items.add(order_item)
+        order.save()
+        print(order.items.all())
         messages.info(request, "Item added")
     return redirect('/menu/')
 
