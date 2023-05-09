@@ -35,7 +35,7 @@ class PizzaOffer(models.Model):
     offer = models.OneToOneField(Offer, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField()
     pizzas = models.ManyToManyField(Pizza, blank=True)
     image = models.ImageField()
 
