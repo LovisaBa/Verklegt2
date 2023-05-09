@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="order-items">
-        {% for item in items %}
+        {% for item in order_items %}
             <div class="baby-order_item justify-content center">
                 <div class="item-image">
                     <img src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }} " width="100%" />
                 </div>
                 <div class="order-details">
-                    {{ item.name|upper }} x{{ prod_quantity }}
-                    {{ item.price }}kr
+                    <p> {{ item.name|upper }} x {{ item.quantity }} </p>
+                    <p> {{ item.price }}kr </p>
                 </div>
             </div>
         {% endfor %}
+        <div class="order-overview">
+            <p> Price {{ user_order.get_price }}</p>
+            <p> Discount {{ user_order.discount}}%</p>
+            <p>Full Price {{ user_order.get_price }}</p>
+        </div>
     </div>
 {% endblock %}
