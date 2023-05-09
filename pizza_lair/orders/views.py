@@ -4,6 +4,7 @@ from menu.models import Pizza, Drink
 from offers.models import Offer, PizzaOffer, Discount
 from .models import *
 from main.models import Product
+from datetime import datetime
 
 # Create your views here.
 
@@ -76,10 +77,33 @@ def add_to_cart(request, product_id):
     return redirect('/menu/')
 
 
+def check_50_discount(request, order, day, discount):
+    if day == 28:
+        order.discount = discount
+        order.save()
+        messages.success(request, 'Discount added!')
+    else:
+        messages.error(request, 'This discount is only valid on the 28th of the month.')
+
+
+def check_20_discount(request, order, weekday, discount):
+    if weekday == 2:
+        order.discount = discount
+        order.save()
+        messages.success(request, 'Discount added!')
+    else:
+        messages.error(request, 'This discount is only valid on wednesdays.')
+
+
 def add_discount(request, discount_id):
-    new_discount = get_object_or_404(Discount, pk=discount_id)
+    today = datetime.now()
+    weekday = today.weekday()
+    day = today.strftime("%b")
+    new_discount = get_object_or_404(Discount, pk=discount_id).discount
     order = get_order(request)
-    order.discount = new_discount.discount
-    order.save()
+    if new_discount == 0.5:
+        check_50_discount(request, order, day, new_discount)
+    if new_discount == 0.2:
+        check_20_discount(request, order, weekday, new_discount)
 
     return redirect('/offers/')
