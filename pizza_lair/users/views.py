@@ -1,6 +1,6 @@
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
 from users.forms.user_form import ProfileForm
 from users.models import Profile
 
@@ -19,16 +19,16 @@ def create_user(request):
 
 
 def profile(request):
-    profile = Profile.objects.filter(user=request.user).first()
+    user_profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=profile, data=request.POST)
+        form = ProfileForm(instance=user_profile, data=request.POST)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
             return redirect('profile')
     return render(request, 'users/profile.html', {
-        'form': ProfileForm(instance=profile)
+        'form': ProfileForm(instance=user_profile)
     })
 
 
