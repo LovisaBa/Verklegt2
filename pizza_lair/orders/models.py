@@ -33,7 +33,7 @@ class Order(models.Model):
         total = 0
         for item in self.items.all():
             total += item.price
-        return total * (1 - (self.discount / 100))
+        return round(total * (1 - (self.discount / 100)))
 
     def __str__(self):
         return f"{self.id} User: {self.user} Ordered: {self.ordered}"

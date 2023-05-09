@@ -13,9 +13,9 @@
             </div>
         {% endfor %}
         <div class="order-overview">
-            <p> Price {{ user_order.get_price }}</p>
-            <p> Discount {{ user_order.discount}}%</p>
-            <p>Full Price {{ user_order.get_price }}</p>
+            <p> Price: {{ user_order.get_price }}</p>
+            <p> Discount: {{ user_order.discount}}%</p>
+            <p>Full Price: {{ user_order.get_discount_price }}</p>
         </div>
     </div>
 {% endblock %}
