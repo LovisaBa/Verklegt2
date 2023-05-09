@@ -60,7 +60,8 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.orderby-btn').on('click', function(g) {
         g.preventDefault();
-        let order_by = $(this).attr('id');
+        let classes = $(this).attr('class');
+        let order_by = classes.split(' ')[0];
         $.ajax( {
             url: '/menu/?order_by=order_by_' + order_by,
             type: 'GET',
