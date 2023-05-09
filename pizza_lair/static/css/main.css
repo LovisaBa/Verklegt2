@@ -193,14 +193,14 @@ button, .btn ,.container-sm{
 }
 
 
-h6 {
+.login-title {
     padding-left:525px;
     margin-top: 50px;
     font-size: 30px;
 
 }
 
-h7 {
+.create-user-title {
     margin-top: 50px;
     padding-left: 580px;
     font-size: 30px;
@@ -230,7 +230,7 @@ h7 {
 }
 
 #create-button {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100px;
     margin-left: 190px;
 }
