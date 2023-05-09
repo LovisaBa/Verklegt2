@@ -191,3 +191,48 @@ button, .btn ,.container-sm{
 .collapse {
     margin-left: 40px;
 }
+
+
+h6 {
+    padding-left:525px;
+    margin-top: 50px;
+    font-size: 30px;
+
+}
+
+h7 {
+    margin-top: 50px;
+    padding-left: 580px;
+    font-size: 30px;
+}
+
+.form-row-login {
+    padding-left: 560px;
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#login-button {
+    margin-top: 15px;
+    margin-left: 55px;
+
+
+}
+
+.form-row-register {
+    display: inline-grid;
+    padding-left: 450px;
+    margin-top: 20px;
+    padding-right: 380px;
+
+
+}
+
+#create-button {
+    margin-top: 10px;
+    width: 100px;
+    margin-left: 190px;
+}
+
+

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Create New User</h1>
-    <form class="form form-horizontal" method="post">
+    <h7>Create New User</h7>
+    <form class="form-row-register" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" class="btn btn-primary" value="Create" />
+        <input type="submit" id="create-button" class="btn btn-dark" value="Create" />
     </form>
 {% endblock %}
