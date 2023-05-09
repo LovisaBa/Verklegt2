@@ -9,7 +9,27 @@ from main.models import Product
 
 
 def index(request):
-    return render(request, 'orders/index.html')
+    user_order = Order.objects.filter(user=request.user, ordered=False)
+    order_items = user_order[0].items.all()
+    items = []
+    for item in order_items:
+        if item.product.type.type == "Pizza":
+            prod_id = item.product.id
+            pizza = Pizza.objects.get(product_id=prod_id)
+            items.append(pizza)
+        elif item.product.type.type == "Offer":
+            prod_id = item.product.id
+            off_id = Offer.objects.get(product_id=prod_id)
+            offer = PizzaOffer.objects.get(offer_id=off_id)
+            items.append(offer)
+        else:
+            prod_id = item.product.id
+            drink = Drink.objects.get(product_id=prod_id)
+            items.append(drink)
+    return render(request, 'orders/index.html', {
+        "items": items,
+        "order_items": order_items
+    })
 
 
 def get_product_price(prod_id):
