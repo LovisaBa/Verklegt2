@@ -207,6 +207,7 @@ button, .btn ,.container-sm{
 }
 
 .form-row-login {
+    display: inline-grid;
     padding-left: 560px;
     width: 200px;
     margin-left: 20px;
