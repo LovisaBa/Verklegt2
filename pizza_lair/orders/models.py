@@ -17,7 +17,7 @@ class OrderItem(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    items = models.ManyToManyField(OrderItem)
+    items = models.ManyToManyField(OrderItem, blank=True)
     ordered = models.BooleanField(default=False)
     discount = models.FloatField(default=0)
 

@@ -8,3 +8,4 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, AuthorAdmin)
+admin.site.register(OrderItem, AuthorAdmin)
