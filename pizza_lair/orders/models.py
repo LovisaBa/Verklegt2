@@ -19,7 +19,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
     ordered = models.BooleanField(default=False)
-    discount = models.IntegerField(default=0)
+    discount = models.FloatField(default=0)
 
     def get_price(self):
         total = 0
