@@ -54,8 +54,7 @@ def add_discount(request, discount_id):
         order = user_orders[0]
     else:
         order = Order.objects.create(user=request.user)
-
-    setattr(order, 'Discount', new_discount.discount)
+    order.discount = new_discount.discount
     order.save()
 
     return redirect('/offers/')
