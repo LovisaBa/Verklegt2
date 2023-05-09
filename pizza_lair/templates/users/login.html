@@ -4,8 +4,8 @@
     <h2>Login to your account</h2>
     </div>
     <form method="post" class="form form-row-login">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" id ="login-button" class="btn btn-dark" value="Login" />
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" id ="login-button" class="btn btn-dark" value="Login" />
     </form>
 {% endblock %}
