@@ -21,7 +21,7 @@ class Ingredient(models.Model):
 class Pizza(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField()
     description = models.CharField(max_length=255, blank=True)
     image = models.ImageField()
     type = models.ManyToManyField(PizzaType)
@@ -34,7 +34,7 @@ class Pizza(models.Model):
 class Drink(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField()
     image = models.ImageField()
 
     def __str__(self):

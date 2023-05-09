@@ -14,10 +14,10 @@ class Country(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    phoneNumber = models.IntegerField()
+    phoneNumber = models.PositiveIntegerField()
     streetName = models.CharField(max_length=255)
-    houseNumber = models.IntegerField()
-    zipCode = models.IntegerField()
+    houseNumber = models.PositiveIntegerField()
+    zipCode = models.PositiveIntegerField()
     city = models.CharField(max_length=255)
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
     image = models.CharField(max_length=9999, default='https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg')
@@ -28,9 +28,9 @@ class Profile(models.Model):
 
 class Payment(models.Model):
     cardHolder = models.CharField(max_length=255)
-    cardNr = models.IntegerField()
+    cardNr = models.PositiveIntegerField()
     expDate = models.DateTimeField()
-    cvv = models.IntegerField()
+    cvv = models.PositiveIntegerField()
 
     def __str__(self):
         return f"CardHolder: {self.cardHolder}"
