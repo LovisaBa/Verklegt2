@@ -2,7 +2,7 @@
 
 <div class="input-group">
 	<form class="d-flex">
-		<input
+        <label for="search-box"></label><input
 			type="search"
 			class="form-control"
 			id="search-box"
@@ -30,25 +30,25 @@
 	</div>
 	<h5>Order by:</h5>
 	<div class="order-by-btns">
-		<button class="orderby-btn btn btn-dark" type="button" id="price">
+		<button class="price orderby-btn btn btn-dark" type="button" >
 			<i class="fa-solid fa-tag"></i>
 		</button>
-		<button class="orderby-btn btn btn-dark" type="button" id="name">
+		<button class="name orderby-btn btn btn-dark" type="button" >
 			<i class="fa-solid fa-arrow-down-a-z"></i>
 		</button>
-		<button class="orderby-btn btn btn-dark" type="button" id="name">
+		<button class="name orderby-btn btn btn-dark" type="button" >
 			<i class="fa-solid fa-arrows-rotate"></i>
 		</button>
 	</div>
 </div>
 <h1 id="pizza-header">Pizzas</h1>
 <div class="pizza-menu">
-	{% for pizza in pizzas %} {% include "pizza/_one_pizza.html" with
-	pizza=pizza %} {% endfor %}
+	{% for pizza in pizzas %} {% include "pizza/_one_pizza.html" with pizza=pizza %}
+    {% endfor %}
 </div>
-<h1 id="pizza-header">Drinks</h1>
+<h1 id="drink-header">Drinks</h1>
 <div class="drink-menu">
-	{% for drink in drinks %} {% include "pizza/_one_drink.html" with
-	drink=drink %} {% endfor %}
+	{% for drink in drinks %} {% include "pizza/_one_drink.html" with drink=drink %}
+    {% endfor %}
 </div>
 {% endblock %}
