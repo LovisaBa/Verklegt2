@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-    <h6>Login to your account</h6>
+    <div class="login-title">
+    <h2>Login to your account</h2>
+    </div>
     <form method="post" class="form form-row-login">
         {% csrf_token %}
         {{ form }}
