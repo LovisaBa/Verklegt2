@@ -1,20 +1,33 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div class="container-about-us">
-        <div class="d-flex justify-content-end">
-            <div class="col-md-6 about-child about-txt bg-darkcyan mt-5">
-                <h1 class="mt-5 px-5">REYK</h1>
-                <h2 class="mb-0 px-5" style="text-indent: 1em;">PIZZERIA</h2>
-                <p class="text px-5 mt-5">
-                  Welcome to our fancy pizza restaurant in Iceland! We are a team of passionate pizza makers who believe in using only the freshest and highest quality ingredients to create delicious and unique pizzas that you won't find anywhere else. We take pride in sourcing our ingredients locally, including our meats, cheeses, and vegetables, to ensure that every bite of our pizzas is bursting with flavor. <p/>
-                <p class="text px-5 mt-5">
-                    At our restaurant, we believe that dining is more than just about the food. We strive to create a warm and inviting atmosphere where you can sit back, relax, and enjoy your meal with friends and family. Our team of friendly and knowledgeable staff are here to make sure that every aspect of your dining experience is perfect.
-                </p>
-            </div>
-            <div class="col-md-6 ml-auto">
-                <img class="about-img" src="/{{ BASE_DIR }}static/images/about.png">
-            </div>
-        </div>
-    </div>
+{% extends "base.html" %} {% block content %}
+<div class="container-about-us">
+	<div class="d-flex justify-content-end">
+		<div class="col-md-6 about-child about-txt bg-darkcyan mt-5">
+			<h1 class="mt-5 px-5">REYK</h1>
+			<h2 class="mb-0 px-5" style="text-indent: 1em">PIZZERIA</h2>
+			<p class="text px-5 mt-5">
+				Welcome to our fancy pizza restaurant in Iceland! We are a team
+				of passionate pizza makers who believe in using only the
+				freshest and highest quality ingredients to create delicious and
+				unique pizzas that you won't find anywhere else. We take pride
+				in sourcing our ingredients locally, including our meats,
+				cheeses, and vegetables, to ensure that every bite of our pizzas
+				is bursting with flavor.
+			</p>
+			<p class="text px-5 mt-5">
+				At our restaurant, we believe that dining is more than just
+				about the food. We strive to create a warm and inviting
+				atmosphere where you can sit back, relax, and enjoy your meal
+				with friends and family. Our team of friendly and knowledgeable
+				staff are here to make sure that every aspect of your dining
+				experience is perfect.
+			</p>
+		</div>
+		<div class="col-md-6 ml-auto">
+			<img
+				class="about-img"
+				src="/{{ BASE_DIR }}static/images/about.png"
+			/>
+		</div>
+	</div>
+</div>
 {% endblock %}

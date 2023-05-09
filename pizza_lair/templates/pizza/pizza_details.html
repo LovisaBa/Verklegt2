@@ -1,22 +1,24 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="col d-flex">
-        <div class="row-md-4">
-            <img src="/{{ BASE_DIR }}static/images/{{pizza.image}}" class="pizza-image" alt="{{ pizza.description }}"/>
-        </div>
-        <div class="col-md-5 mx-auto px-5 mt-5 py-5">
-            <h1>{{ pizza.name |upper }}</h1>
-           <div class="container-sm d-flex", style="background-color:#282931">
-               <ul class="list-unstyled my-4">
-                    <li class="mb-4"> Description: {{ pizza.description }}</li>
-                    <li class="mb-4"> Price: {{ pizza.price }} kr.</li>
-               </ul>
-            </div>
-            <form action="{% url 'add_to_cart' pizza.product_id %}" method="post">
-                {% csrf_token %}
-                <button class="btn btn-dark mt-3",>Add to cart</button>
-            </form>
-
-        </div>
-    </div>
+{% extends "base.html" %} {% block content %}
+<div class="col d-flex">
+	<div class="row-md-4">
+		<img
+			src="/{{ BASE_DIR }}static/images/{{pizza.image}}"
+			class="pizza-image"
+			alt="{{ pizza.description }}"
+		/>
+	</div>
+	<div class="col-md-5 mx-auto px-5 mt-5 py-5">
+		<h1>{{ pizza.name |upper }}</h1>
+		<div class="container-sm d-flex" style="background-color: #282931">
+			<ul class="list-unstyled my-4">
+				<li class="mb-4">Description: {{ pizza.description }}</li>
+				<li class="mb-4">Price: {{ pizza.price }} kr.</li>
+			</ul>
+		</div>
+		<form action="{% url 'add_to_cart' pizza.product_id %}" method="post">
+			{% csrf_token %}
+			<button class="btn btn-dark mt-3">Add to cart</button>
+		</form>
+	</div>
+</div>
 {% endblock %}
