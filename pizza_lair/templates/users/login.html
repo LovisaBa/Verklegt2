@@ -2,11 +2,9 @@
 {% block content %}
 
     <h6>Login to your account</h6>
-    <form class="form-row-login">
-    <form method="post" class="form form-horizontal">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" id ="login-button" class="btn btn-dark" value="Login" />
-    </form>
+    <form method="post" class="form form-row-login">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" id ="login-button" class="btn btn-dark" value="Login" />
     </form>
 {% endblock %}
