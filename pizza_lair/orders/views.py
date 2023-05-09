@@ -10,38 +10,27 @@ from datetime import datetime
 
 
 def index(request):
-    user_order = Order.objects.filter(user=request.user, ordered=False)
-    order_items = user_order[0].items.all()
-    items = []
-    for item in order_items:
-        if item.product.type.type == "Pizza":
-            prod_id = item.product.id
-            pizza = Pizza.objects.get(product_id=prod_id)
-            items.append(pizza)
-        elif item.product.type.type == "Offer":
-            prod_id = item.product.id
-            off_id = Offer.objects.get(product_id=prod_id)
-            offer = PizzaOffer.objects.get(offer_id=off_id)
-            items.append(offer)
-        else:
-            prod_id = item.product.id
-            drink = Drink.objects.get(product_id=prod_id)
-            items.append(drink)
+    user_order = get_order(request)
+    order_items = user_order.items.all()
+    for order_item in order_items:
+        item = get_item_from_prod_id(order_item.product_id)
+        order_item.image = item.image
+        order_item.name = item.name
     return render(request, 'orders/index.html', {
-        "items": items,
-        "order_items": order_items
+        "order_items": order_items,
+        "user_order": user_order
     })
 
 
-def get_product_price(prod_id):
+def get_item_from_prod_id(prod_id):
     product = Product.objects.get(pk=prod_id)
     if product.type.type == "Pizza":
-        return Pizza.objects.get(product_id=prod_id).price
+        return Pizza.objects.get(product_id=prod_id)
     if product.type.type == "Offer":
         off_id = Offer.objects.get(product_id=prod_id)
-        return PizzaOffer.objects.get(offer_id=off_id).price
+        return PizzaOffer.objects.get(offer_id=off_id)
     else:
-        return Drink.objects.get(product_id=prod_id).price
+        return Drink.objects.get(product_id=prod_id)
 
 
 def get_order(request):
@@ -60,7 +49,7 @@ def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
-        price=get_product_price(product_id),
+        price=get_item_from_prod_id(product_id).price,
     )
     order = get_order(request)
 

@@ -24,7 +24,7 @@ class Discount(models.Model):
     offer = models.OneToOneField(Offer, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    discount = models.FloatField()
+    discount = models.PositiveIntegerField()
     image = models.ImageField()
 
     def __str__(self):
