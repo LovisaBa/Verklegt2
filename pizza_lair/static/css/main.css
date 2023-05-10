@@ -55,6 +55,7 @@ body {
     background-color: #282931;
     margin-left: 30px;
     text-align: left;
+    margin-top: 20px;
 }
 
 .item-image {
@@ -258,4 +259,19 @@ button, .btn ,.container-sm{
     margin-left: 190px;
 }
 
+.order-in-cart {
+    margin-top: 20px;
+}
 
+#empty-cart-button{
+    margin-top: 26px;
+    position: relative;
+    margin-left: 30px;
+
+}
+
+.cart-title {
+    position: relative;
+    padding-top: 20px;
+
+}
