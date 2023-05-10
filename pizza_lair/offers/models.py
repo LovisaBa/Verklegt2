@@ -36,7 +36,7 @@ class PizzaOffer(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     price = models.PositiveIntegerField()
-    pizzas = models.ManyToManyField(Pizza, blank=True)
+    pizza_amount = models.IntegerField(default=2)
     image = models.ImageField()
 
     def __str__(self):

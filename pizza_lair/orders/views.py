@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from menu.models import Pizza, Drink
 from offers.models import Offer, PizzaOffer, Discount
+from offers.views import add_pizzas_to_offer
 from .models import *
 from main.models import Product
 from datetime import datetime
@@ -97,3 +98,12 @@ def add_discount(request, discount_id):
         check_20_discount(request, order, weekday, new_discount)
 
     return redirect('/offers/')
+
+
+def add_offer(request, offer_id):
+    print('HALLO')
+    pizzas = add_pizzas_to_offer(request, offer_id)
+    for pizza in pizzas:
+        add_to_cart(request, pizza.product_id)
+
+    return redirect('orders_index')
