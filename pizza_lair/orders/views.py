@@ -91,9 +91,9 @@ def add_discount(request, discount_id):
     day = today.strftime("%b")
     new_discount = get_object_or_404(Discount, pk=discount_id).discount
     order = get_order(request)
-    if new_discount == 0.5:
+    if new_discount == 50:
         check_50_discount(request, order, day, new_discount)
-    if new_discount == 0.2:
+    if new_discount == 20:
         check_20_discount(request, order, weekday, new_discount)
 
     return redirect('/offers/')
