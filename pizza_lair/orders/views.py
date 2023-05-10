@@ -49,7 +49,7 @@ def get_order(request):
 
 
 def add_to_order(request, order, order_item, pk):
-    if order.items.filter(product__pk=pk).exists():
+    if order.items.filter(product__pk=pk, price=order_item.price).exists():
         order_item.quantity += 1
     else:
         order.items.add(order_item)
@@ -65,6 +65,7 @@ def add_to_cart(request, product_id):
     add_to_order(request, order, order_item, product.pk)
     messages.info(request, "Item added")
     return redirect('/menu/')
+
 
 def empty_cart(request):
     order = get_order(request)
@@ -111,21 +112,19 @@ def add_offer(request, offer_id):
     pizza_price = round(offer.price/offer.pizza_amount)
     if request.method == 'POST':
         data = request.POST.getlist('pizza')
-        pizzas = []
         for prod_id in data:
-            pizzas.append(get_item_from_prod_id(prod_id))
-        for pizza in pizzas:
+            pizza = get_item_from_prod_id(prod_id)
             order_item, created = create_order_item(pizza.product, pizza_price)
             add_to_order(request, order, order_item, pizza.product.pk)
-    messages.success(request, 'Offer has been added to your order')
+
+        messages.success(request, 'Offer has been added to your order')
     return redirect('orders_index')
 
 
 def create_order_item(product, price):
     return OrderItem.objects.get_or_create(
                 product=product,
-                price=price,
-                quantity=1)
+                price=price)
 
 
 def checkout(request):
@@ -133,4 +132,3 @@ def checkout(request):
     return render(request, 'orders/checkout.html', {
         'form': ProfileForm(instance=user_profile)
     })
-
