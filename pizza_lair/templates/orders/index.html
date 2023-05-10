@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <button class="empty-cart filter-btns btn btn-dark" type="button" id="Spicy">Empty cart
-    </button>
-    <div class="order-items">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <form action="{% url 'empty_cart' %}" method="post">
+            {% csrf_token %}
+                <button class="empty-cart filter-btns btn btn-dark" id="empty-cart-button" type="button">Empty Cart</button>
+            </form>
+        </div>
+        <div class="col-md-10">
+            <div class="cart-title">
+                <h1>My cart</h1>
+            </div>
+        </div>
+    </div>
+
+
     <div class="baby-order_item row">
         {% for item in order_items %}
-        <div class="col-12 mb-3">
+
+        <div class=" order-in-cart col-12 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-1">
                     <div class="item-image mt-2">
@@ -19,6 +33,7 @@
             </div>
         </div>
         {% endfor %}
+
     </div>
         <div class="order-overview col-md-3">
         <div class="order-text">
