@@ -13,10 +13,12 @@
                </ul>
 
             </div>
-            <button class="btn btn-dark mt-3">Buy offer</button>
-        </div>
-        </div>
-        </div>
+            <form action="{% url 'add_offer' offer.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-dark mt-3">Buy offer</button>
+            </form>
+            </div>
+    </div>
 {% endblock %}
 
 
