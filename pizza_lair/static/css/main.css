@@ -287,3 +287,7 @@ button, .btn ,.container-sm{
 .overview-title {
     padding-left: 20px;
 }
+
+#chose-pizza {
+    display: inline-grid;
+}
