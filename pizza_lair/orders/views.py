@@ -50,6 +50,7 @@ def add_to_cart(request, product_id):
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
         price=get_item_from_prod_id(product_id).price,
+        quantity=1
     )
     order = get_order(request)
 
