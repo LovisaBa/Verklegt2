@@ -11,11 +11,11 @@
             <li class="mb-4"> Description: {{ offer.description }}</li>
             <li class="mb-4"> Price: {{ offer.price }} kr.</li>
                </ul>
-
             </div>
             <form action="{% url 'add_offer' offer.id %}" method="post">
                 {% csrf_token %}
                 <label for="chose_pizza">Select a pizza:</label>
+            <div class="select-pizza">
                     {% for x in amount %}
                         <select name="pizza" id="chose_pizza">
                             {% for pizza in pizzas %}
@@ -23,9 +23,11 @@
                             {% endfor %}
                         </select>
                     {% endfor %}
-                <button class="btn btn-dark mt-3">Buy offer</button>
+                <button class="btn btn-dark mt-3" id="buy-offer-btn">Buy offer</button>
             </form>
             </div>
+    </div>
+    </div>
     </div>
 {% endblock %}
 
