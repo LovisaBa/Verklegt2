@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container-fluid">
+    <div class="container-order">
     <div class="row">
         <div class="col-md-2">
             <form action="{% url 'empty_cart' %}" method="post">
@@ -47,7 +47,7 @@
             </div>
             <form action="{% url 'checkout' %}" method="post">
                 {% csrf_token %}
-                <button class="btn btn-dark mt-3">Checkout</button>
+                <button class="btn btn-dark mt-3" id="checkout-btn">Checkout</button>
             </form>
         </div>
     </div>

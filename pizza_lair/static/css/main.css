@@ -280,10 +280,21 @@ button, .btn ,.container-sm{
 
 }
 
-.container-fluid {
-    padding-left: 100px;
-}
-
 .overview-title {
     padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+#chose-pizza {
+    display: inline-grid;
+}
+
+#checkout-btn {
+    margin-left: 90px;
+    background-color: #34363E;
+    margin-bottom: 20px;
+}
+
+.container-order {
+    margin-left: 200px;
 }
