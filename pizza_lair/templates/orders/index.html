@@ -8,7 +8,11 @@
                 </div>
                 <div class="order-details">
                     <p> {{ item.name|upper }} x {{ item.quantity }} </p>
-                    <p> {{ item.price }}kr </p>
+                    <p> {{ item.price }}kr Total Price {{ item.get_full_price }}</p>
+                    <i class="fa fa-minus"></i>
+                    <i class="fa fa-plus"></i>
+                    <span class="vsm-text plus">+</span>
+                            <span class="vsm-text minus">-</span>
                 </div>
             </div>
         {% endfor %}
