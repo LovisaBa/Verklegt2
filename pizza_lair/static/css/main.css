@@ -13,7 +13,7 @@ body {
     margin-top: 20px;
 }
 
-.pizza-menu, .drink-menu, .offers, .discounts, .profile-div, .order-items {
+.pizza-menu, .drink-menu, .offers, .discounts, .profile-div {
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +25,7 @@ body {
 }
 
 
-.baby-pizza, .baby-drink, .baby-offer, .baby-discount, .baby-order_item {
+.baby-pizza, .baby-drink, .baby-offer, .baby-discount {
     background-color: #282931;
     flex: 0 0 30%;
     position: relative;
@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
 }
 
-.pizza-detail-child, .drink-detail-child, .right-hand, .left-hand, .order-details {
+.pizza-detail-child, .drink-detail-child, .right-hand, .left-hand {
     background-color: #282931;
     flex: 0 0 48%;
     position: relative;
@@ -48,6 +48,16 @@ body {
     text-align: center;
     justify-content: center;
     border-radius: 4px;
+}
+
+.baby-order_item, .order-overview {
+    background-color: #282931;
+    margin-left: 30px;
+    text-align: left;
+}
+
+.item-image {
+    margin-left: 30px;
 }
 
 .background-img {
@@ -117,7 +127,6 @@ body {
     padding-left:215px;
     width: 120%;
     overflow-x: hidden;
-
 }
 
  i {
@@ -148,13 +157,18 @@ h5 {
     padding-left: 200px;
 }
 
-.container-about-us {
+.container-about-us, .order-items {
     padding-left: 150px;
 }
 
-.right-hand, .left-hand {
+.right-hand, .left-hand .baby-order_item, .order-overview {
     padding-top: 30px;
     padding-bottom: 40px;
+}
+
+.order-image {
+    width: 100px;
+    height: 100px;
 }
 
 #profile-img {
@@ -192,12 +206,10 @@ button, .btn ,.container-sm{
     margin-left: 40px;
 }
 
-
 .login-title {
     padding-left:525px;
     margin-top: 50px;
     font-size: 30px;
-
 }
 
 .create-user-title {
@@ -217,8 +229,6 @@ button, .btn ,.container-sm{
 #login-button {
     margin-top: 15px;
     margin-left: 55px;
-
-
 }
 
 .form-row-register {
@@ -226,8 +236,6 @@ button, .btn ,.container-sm{
     padding-left: 450px;
     margin-top: 20px;
     padding-right: 380px;
-
-
 }
 
 #create-button {
