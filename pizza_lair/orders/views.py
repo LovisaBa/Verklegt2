@@ -67,6 +67,12 @@ def add_to_cart(request, product_id):
         messages.info(request, "Item added")
     return redirect('/menu/')
 
+def empty_cart(request):
+    order = get_order(request)
+    order.delete()
+    messages.success(request, 'Cart has been emptied')
+    return redirect("/orders/")
+
 
 def check_50_discount(request, order, day, discount):
     if day == 28:
