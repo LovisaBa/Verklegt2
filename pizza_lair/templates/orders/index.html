@@ -2,26 +2,31 @@
 {% block content %}
     <button class="empty-cart filter-btns btn btn-dark" type="button" id="Spicy">Empty cart
     </button>
-    <div class="order-items d-flex">
-        <div class="baby-order_item col-md-3">
+    <div class="order-items">
+    <div class="baby-order_item row">
         {% for item in order_items %}
-            <div>
-                <div class="item-image mt-3">
-                    <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }} " width="100%" />
+        <div class="col-12 mb-3">
+            <div class="row align-items-center">
+                <div class="col-md-1">
+                    <div class="item-image mt-2">
+                        <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }}" width="100%">
+                    </div>
                 </div>
-                <div class="order-details">
-                    <p> {{ item.name|upper }} x {{ item.quantity }} </p>
-                    <p> {{ item.price }}kr </p>
+                <div class="order-details col-md-5 px-5">
+                    <p>{{ item.name|upper }} x {{ item.quantity }}</p>
+                    <p>{{ item.price }}kr</p>
                 </div>
             </div>
-        {% endfor %}
         </div>
+        {% endfor %}
+    </div>
         <div class="order-overview col-md-3">
-            <p> Price: {{ user_order.get_price }}</p>
-            <p> Discount: {{ user_order.discount}}%</p>
+        <div class="order-text">
+            <p>Price: {{ user_order.get_price }}</p>
+            <p>Discount: {{ user_order.discount}}%</p>
             <p>Full Price: {{ user_order.get_discount_price }}</p>
-            <button class="filter-btns btn btn-dark" type="button" id="Spicy">Checkout
-		    </button>
+            </div>
+            <button class="filter-btns btn btn-dark" type="button" id="Spicy">Checkout</button>
         </div>
     </div>
 {% endblock %}

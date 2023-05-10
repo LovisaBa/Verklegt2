@@ -51,6 +51,7 @@ body {
 }
 
 .baby-order_item, .order-overview {
+    display: inline-grid;
     background-color: #282931;
     margin-left: 30px;
     text-align: left;
@@ -161,10 +162,23 @@ h5 {
     padding-left: 150px;
 }
 
-.right-hand, .left-hand .baby-order_item, .order-overview {
+.order-details {
+    margin-left: 100px;
+}
+
+.order-text {
+    margin-left: 20px;
+}
+
+.right-hand, .left-hand .baby-order_item {
     padding-top: 30px;
     padding-bottom: 40px;
 }
+
+.order-overview {
+    padding-top: 40px;
+}
+
 
 .order-image {
     width: 100px;
