@@ -58,6 +58,10 @@ body {
     margin-top: 20px;
 }
 
+.order-overview {
+    padding-top: 50px;
+}
+
 .item-image {
     margin-left: 30px;
 }
@@ -177,7 +181,7 @@ h5 {
 }
 
 .order-overview {
-    padding-top: 40px;
+    height: 300px;
 }
 
 
@@ -263,15 +267,23 @@ button, .btn ,.container-sm{
     margin-top: 20px;
 }
 
-#empty-cart-button{
-    margin-top: 26px;
+#empty-cart{
+    margin-top: 35px !important;
     position: relative;
-    margin-left: 30px;
+    margin-left: 50px;
 
 }
 
 .cart-title {
     position: relative;
-    padding-top: 20px;
+    padding-top: 30px;
 
+}
+
+.container-fluid {
+    padding-left: 100px;
+}
+
+.overview-title {
+    padding-left: 20px;
 }
