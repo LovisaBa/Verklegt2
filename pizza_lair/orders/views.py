@@ -6,6 +6,8 @@ from .models import *
 from main.models import Product
 from datetime import datetime
 from offers.views import get_offer_by_id
+from users.forms.user_form import ProfileForm, PaymentForm
+from users.models import Profile, Payment
 
 # Create your views here.
 
@@ -124,3 +126,11 @@ def create_order_item(product, price):
                 product=product,
                 price=price,
                 quantity=1)
+
+
+def checkout(request):
+    user_profile = Profile.objects.filter(user=request.user).first()
+    return render(request, 'orders/checkout.html', {
+        'form': ProfileForm(instance=user_profile)
+    })
+
