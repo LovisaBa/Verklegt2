@@ -16,9 +16,6 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.product.type} {self.quantity} {self.price}"
 
-    def get_full_price(self):
-        return self.price * self.quantity
-
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -29,13 +26,13 @@ class Order(models.Model):
     def get_price(self):
         total = 0
         for item in self.items.all():
-            total += item.get_full_price()
+            total += item.price
         return total
 
     def get_discount_price(self):
         total = 0
         for item in self.items.all():
-            total += item.get_full_price()
+            total += item.price
         return round(total * (1 - (self.discount / 100)))
 
     def __str__(self):
