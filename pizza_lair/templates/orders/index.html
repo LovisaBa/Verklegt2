@@ -5,7 +5,8 @@
         <div class="col-md-2">
             <form action="{% url 'empty_cart' %}" method="post">
             {% csrf_token %}
-                <button class="empty-cart filter-btns btn btn-dark" id="empty-cart-button" type="button">Empty Cart</button>
+            <button class="btn btn-dark mt-3" id="empty-cart">
+                Empty Cart </button>
             </form>
         </div>
         <div class="col-md-10">
@@ -36,6 +37,9 @@
 
     </div>
         <div class="order-overview col-md-3">
+            <div class="overview-title">
+                <h2>Overview: </h2>
+            </div>
         <div class="order-text">
             <p>Price: {{ user_order.get_price }}</p>
             <p>Discount: {{ user_order.discount}}%</p>
