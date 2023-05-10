@@ -8,6 +8,8 @@ from main.models import Product
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.CharField(max_length=9999, blank=True)
+    name = models.CharField(max_length=255, blank=True)
     price = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField(default=1)
 
@@ -19,7 +21,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem, blank=True)
     ordered = models.BooleanField(default=False)
-    discount = models.FloatField(default=0)
+    discount = models.PositiveIntegerField(default=0)
 
     def get_price(self):
         total = 0
@@ -31,7 +33,7 @@ class Order(models.Model):
         total = 0
         for item in self.items.all():
             total += item.price
-        return total * (1 - self.discount)
+        return round(total * (1 - (self.discount / 100)))
 
     def __str__(self):
         return f"{self.id} User: {self.user} Ordered: {self.ordered}"

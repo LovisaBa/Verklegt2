@@ -4,23 +4,33 @@ from menu.models import Pizza, Drink
 from offers.models import Offer, PizzaOffer, Discount
 from .models import *
 from main.models import Product
+from datetime import datetime
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'orders/index.html')
+    user_order = get_order(request)
+    order_items = user_order.items.all()
+    for order_item in order_items:
+        item = get_item_from_prod_id(order_item.product_id)
+        order_item.image = item.image
+        order_item.name = item.name
+    return render(request, 'orders/index.html', {
+        "order_items": order_items,
+        "user_order": user_order
+    })
 
 
-def get_product_price(prod_id):
+def get_item_from_prod_id(prod_id):
     product = Product.objects.get(pk=prod_id)
     if product.type.type == "Pizza":
-        return Pizza.objects.get(product_id=prod_id).price
+        return Pizza.objects.get(product_id=prod_id)
     if product.type.type == "Offer":
         off_id = Offer.objects.get(product_id=prod_id)
-        return PizzaOffer.objects.get(offer_id=off_id).price
+        return PizzaOffer.objects.get(offer_id=off_id)
     else:
-        return Drink.objects.get(product_id=prod_id).price
+        return Drink.objects.get(product_id=prod_id)
 
 
 def get_order(request):
@@ -39,7 +49,8 @@ def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
-        price=get_product_price(product_id),
+        price=get_item_from_prod_id(product_id).price,
+        quantity=1
     )
     order = get_order(request)
 
@@ -56,10 +67,33 @@ def add_to_cart(request, product_id):
     return redirect('/menu/')
 
 
+def check_50_discount(request, order, day, discount):
+    if day == 28:
+        order.discount = discount
+        order.save()
+        messages.success(request, 'Discount added!')
+    else:
+        messages.error(request, 'This discount is only valid on the 28th of the month.')
+
+
+def check_20_discount(request, order, weekday, discount):
+    if weekday == 2:
+        order.discount = discount
+        order.save()
+        messages.success(request, 'Discount added!')
+    else:
+        messages.error(request, 'This discount is only valid on wednesdays.')
+
+
 def add_discount(request, discount_id):
-    new_discount = get_object_or_404(Discount, pk=discount_id)
+    today = datetime.now()
+    weekday = today.weekday()
+    day = today.strftime("%b")
+    new_discount = get_object_or_404(Discount, pk=discount_id).discount
     order = get_order(request)
-    order.discount = new_discount.discount
-    order.save()
+    if new_discount == 50:
+        check_50_discount(request, order, day, new_discount)
+    if new_discount == 20:
+        check_20_discount(request, order, weekday, new_discount)
 
     return redirect('/offers/')
