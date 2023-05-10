@@ -2,10 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from menu.models import Pizza, Drink
 from offers.models import Offer, PizzaOffer, Discount
-from offers.views import add_pizzas_to_offer
 from .models import *
 from main.models import Product
 from datetime import datetime
+from offers.views import get_offer_by_id
 
 # Create your views here.
 
@@ -46,25 +46,22 @@ def get_order(request):
     return order
 
 
-def add_to_cart(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    order_item, created = OrderItem.objects.get_or_create(
-        product=product,
-        price=get_item_from_prod_id(product_id).price,
-        quantity=1
-    )
-    order = get_order(request)
-
-    if order.items.filter(product__pk=product.pk).exists():
+def add_to_order(request, order, order_item, pk):
+    if order.items.filter(product__pk=pk).exists():
         order_item.quantity += 1
-        order_item.save()
-        order.save()
-        messages.info(request, "Quantity increased")
     else:
         order.items.add(order_item)
-        order.save()
-        print(order.items.all())
-        messages.info(request, "Item added")
+    order_item.save()
+    order.save()
+
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    price = get_item_from_prod_id(product_id).price
+    order_item, created = create_order_item(product, price)
+    order = get_order(request)
+    add_to_order(request, order, order_item, product.pk)
+    messages.info(request, "Item added")
     return redirect('/menu/')
 
 def empty_cart(request):
@@ -107,9 +104,23 @@ def add_discount(request, discount_id):
 
 
 def add_offer(request, offer_id):
-    print('HALLO')
-    pizzas = add_pizzas_to_offer(request, offer_id)
-    for pizza in pizzas:
-        add_to_cart(request, pizza.product_id)
-
+    order = get_order(request)
+    offer = get_offer_by_id(offer_id)
+    pizza_price = round(offer.price/offer.pizza_amount)
+    if request.method == 'POST':
+        data = request.POST.getlist('pizza')
+        pizzas = []
+        for prod_id in data:
+            pizzas.append(get_item_from_prod_id(prod_id))
+        for pizza in pizzas:
+            order_item, created = create_order_item(pizza.product, pizza_price)
+            add_to_order(request, order, order_item, pizza.product.pk)
+    messages.success(request, 'Offer has been added to your order')
     return redirect('orders_index')
+
+
+def create_order_item(product, price):
+    return OrderItem.objects.get_or_create(
+                product=product,
+                price=price,
+                quantity=1)
