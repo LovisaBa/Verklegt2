@@ -10,7 +10,11 @@
             </form>
         </div>
         <div class="left-hand row">
-            <img id="profile-img" src="{{ user.profile.image }}" alt="Profile image for user" class="image" />
+            {% if user.profile.image %}
+                <img id="profile-img" src="{{ user.profile.image }}" alt="Profile image for user" class="image" />
+            {% else %}
+                <img id="profile-img" src="https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg" alt="Default profile image" class="image" />
+            {% endif %}
         </div>
     </div>
 {% endblock %}
