@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="order-items">
+    <button class="empty-cart filter-btns btn btn-dark" type="button" id="Spicy">Empty cart
+    </button>
+    <div class="order-items d-flex">
+        <div class="baby-order_item col-md-3">
         {% for item in order_items %}
-            <div class="baby-order_item justify-content center">
-                <div class="item-image">
-                    <img src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }} " width="100%" />
+            <div>
+                <div class="item-image mt-3">
+                    <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }} " width="100%" />
                 </div>
                 <div class="order-details">
                     <p> {{ item.name|upper }} x {{ item.quantity }} </p>
@@ -12,10 +15,13 @@
                 </div>
             </div>
         {% endfor %}
-        <div class="order-overview">
+        </div>
+        <div class="order-overview col-md-3">
             <p> Price: {{ user_order.get_price }}</p>
             <p> Discount: {{ user_order.discount}}%</p>
             <p>Full Price: {{ user_order.get_discount_price }}</p>
+            <button class="filter-btns btn btn-dark" type="button" id="Spicy">Checkout
+		    </button>
         </div>
     </div>
 {% endblock %}
