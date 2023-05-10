@@ -1,21 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="order-items">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <form action="{% url 'empty_cart' %}" method="post">
+            {% csrf_token %}
+                <button class="empty-cart filter-btns btn btn-dark" id="empty-cart-button" type="button">Empty Cart</button>
+            </form>
+        </div>
+        <div class="col-md-10">
+            <div class="cart-title">
+                <h1>My cart</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="baby-order_item row">
         {% for item in order_items %}
-            <div class="baby-order_item justify-content center">
-                <div class="item-image">
-                    <img src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }} " width="100%" />
+
+        <div class=" order-in-cart col-12 mb-3">
+            <div class="row align-items-center">
+                <div class="col-md-1">
+                    <div class="item-image mt-2">
+                        <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }}" width="100%">
+                    </div>
                 </div>
-                <div class="order-details">
-                    <p> {{ item.name|upper }} x {{ item.quantity }} </p>
-                    <p> {{ item.price }}kr </p>
+                <div class="order-details col-md-5 px-5">
+                    <p>{{ item.name|upper }} x {{ item.quantity }}</p>
+                    <p>{{ item.price }}kr</p>
                 </div>
             </div>
+        </div>
         {% endfor %}
-        <div class="order-overview">
-            <p> Price: {{ user_order.get_price }}</p>
-            <p> Discount: {{ user_order.discount}}%</p>
+
+    </div>
+        <div class="order-overview col-md-3">
+        <div class="order-text">
+            <p>Price: {{ user_order.get_price }}</p>
+            <p>Discount: {{ user_order.discount}}%</p>
             <p>Full Price: {{ user_order.get_discount_price }}</p>
+            </div>
+            <button class="filter-btns btn btn-dark" type="button" id="Spicy">Checkout</button>
         </div>
     </div>
 {% endblock %}
