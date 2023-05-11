@@ -7,7 +7,7 @@
                 <h1>My cart</h1>
             </div>
         </div>
-            <div class="col-md-1">
+            <div class="col-md-4 ml-5">
             <form action="{% url 'empty_cart' %}" method="post">
             {% csrf_token %}
             <button class="btn btn-dark mt-3" id="empty-cart">
