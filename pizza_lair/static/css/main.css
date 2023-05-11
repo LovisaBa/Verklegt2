@@ -307,3 +307,14 @@ button, .btn ,.container-sm{
 #buy-offer-btn {
 
 }
+
+#plus-btn {
+    position: relative;
+    background-color: #34363E;
+}
+
+#minus-btn {
+    position: relative;
+    background-color: #34363E;
+    margin-right: 95px !important;
+}
