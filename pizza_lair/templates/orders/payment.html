@@ -1,11 +1,17 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
     <div class="profile-div">
         <div class="right-hand row">
             <h1>Please input your payment information</h1>
+            <h1>Profile</h1>
             <form class="form row" method="post">
-                <h1>This should be a payment form</h1>
+                {% csrf_token %}
+                {{ form }}
+                <input id="form-btn" type="submit" class="btn btn-dark" value="update"/>
             </form>
         </div>
-
+        <div class="left-hand row">
+            <img id="profile-img" src="https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg" alt="Default profile image" class="image" />
+        </div>
     </div>
 {% endblock %}

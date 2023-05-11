@@ -32,6 +32,7 @@ class Profile(models.Model):
 
 
 class Payment(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     cardHolder = models.CharField(max_length=255)
     cardNr = models.PositiveIntegerField()
     expDate = models.DateTimeField()
