@@ -14,7 +14,7 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f"{self.product.type} {self.quantity} {self.price}"
+        return f"prod_id{self.product.id} type{self.product.type} quantity{self.quantity} {self.price}kr."
 
 
 class Order(models.Model):
