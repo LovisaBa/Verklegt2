@@ -67,9 +67,9 @@ def add_to_cart(request, product_id):
     return redirect('/menu/')
 
 
-def increase_quantity(request, order_item_id, product_id):
+def increase_quantity(request, product_id, price, quantity):
     product = get_object_or_404(Product, pk=product_id)
-    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    order_item, create = create_order_item(product, price, quantity)
     order = get_order(request)
     add_to_order(request, order, order_item, product.pk)
     messages.info(request, 'Quantity increased')
