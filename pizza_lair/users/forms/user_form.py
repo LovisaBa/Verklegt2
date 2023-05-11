@@ -27,7 +27,8 @@ class PaymentForm(ModelForm):
         widgets = {
             'CardHolder': widgets.TextInput(attrs={'class': 'form-control'}),
             'CardNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'ExpDateMonth': widgets.Select(attrs={'class': 'form-control'}),
-            'ExpDateYear': widgets.Select(attrs={'class': 'form-control'}),
+            'ExpDate': widgets.Select(attrs={'class': 'form-control'}),
+            'ExpYear': widgets.Select(attrs={'class': 'form-control'}),
             'cvv': widgets.NumberInput(attrs={'class': 'form-control'})
         }
+
