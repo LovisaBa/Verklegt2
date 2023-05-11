@@ -176,8 +176,10 @@ def checkout(request):
             user_profile = form.save(commit=False)
             user_profile.user = request.user
             user_profile.save()
+            messages.success(request, 'User was successfully updated!')
             return redirect('payment')
         else:
+            messages.error(request, 'There was an error updating the user.')
             return redirect('checkout')
     return render(request, 'orders/checkout.html', {
         'form': ProfileForm(instance=user_profile)
@@ -192,8 +194,10 @@ def payment(request):
             user_profile = form.save(commit=False)
             user_profile.user = request.user
             user_profile.save()
+            messages.success(request, 'Payment information was successfully updated!')
             return redirect('confirm')
         else:
+            messages.error(request, 'There was an error updating payment details.')
             return redirect('payment')
     return render(request, 'orders/payment.html', {
         'form': PaymentForm(instance=user_profile)
