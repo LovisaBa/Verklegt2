@@ -14,7 +14,7 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f"{self.product.type} {self.quantity} {self.price}"
+        return f"prod_id{self.product.id} type{self.product.type} quantity{self.quantity} {self.price}kr."
 
 
 class Order(models.Model):
@@ -26,13 +26,11 @@ class Order(models.Model):
     def get_price(self):
         total = 0
         for item in self.items.all():
-            total += item.price
+            total += item.price*item.quantity
         return total
 
     def get_discount_price(self):
-        total = 0
-        for item in self.items.all():
-            total += item.price
+        total = self.get_price()
         return round(total * (1 - (self.discount / 100)))
 
     def __str__(self):
