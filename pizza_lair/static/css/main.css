@@ -270,13 +270,14 @@ button, .btn ,.container-sm{
 #empty-cart{
     margin-top: 35px !important;
     position: relative;
-    margin-left: 50px;
 
 }
 
 .cart-title {
     position: relative;
     padding-top: 30px;
+    margin-left: 35px !important;
+
 
 }
 
