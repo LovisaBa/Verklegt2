@@ -13,7 +13,7 @@ body {
     margin-top: 20px;
 }
 
-.pizza-menu, .drink-menu, .offers, .discounts, .profile-div {
+.pizza-menu, .drink-menu, .offers, .discounts, .profile-div, .error-page {
     background-color: #34363e;
     display: flex;
     flex-wrap: wrap;
