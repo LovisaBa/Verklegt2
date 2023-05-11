@@ -60,7 +60,7 @@ def add_to_order(request, order, order_item, pk):
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     price = get_item_from_prod_id(product_id).price
-    order_item, created = create_order_item(product, price)
+    order_item, created = create_order_item(product, price, 1)
     order = get_order(request)
     add_to_order(request, order, order_item, product.pk)
     messages.info(request, "Item added")
@@ -112,23 +112,65 @@ def add_offer(request, offer_id):
     pizza_price = round(offer.price/offer.pizza_amount)
     if request.method == 'POST':
         data = request.POST.getlist('pizza')
+        pizzas = []
         for prod_id in data:
             pizza = get_item_from_prod_id(prod_id)
-            order_item, created = create_order_item(pizza.product, pizza_price)
-            add_to_order(request, order, order_item, pizza.product.pk)
-
+            pizzas.append(pizza)
+        pizza_dict = count_pizzas(pizzas)
+        for key in pizza_dict:
+            order_item, created = create_order_item(key.product, pizza_price, pizza_dict[key])
+            add_to_order(request, order, order_item, key.product.pk)
         messages.success(request, 'Offer has been added to your order')
     return redirect('orders_index')
 
 
-def create_order_item(product, price):
+def count_pizzas(pizzas) -> dict:
+    pizza_dict = {}
+    for pizza in pizzas:
+        count = pizzas.count(pizza)
+        pizza_dict[pizza] = count
+    print(pizza_dict)
+    return pizza_dict
+
+
+def create_order_item(product, price, quantity):
     return OrderItem.objects.get_or_create(
                 product=product,
-                price=price)
+                price=price,
+                quantity=quantity)
 
 
 def checkout(request):
     user_profile = Profile.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = ProfileForm(instance=user_profile, data=request.POST)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            return redirect('payment')
+        else:
+            return redirect('checkout')
     return render(request, 'orders/checkout.html', {
         'form': ProfileForm(instance=user_profile)
     })
+
+
+def payment(request):
+    user_profile = Profile.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = ProfileForm(instance=user_profile, data=request.POST)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            return redirect('confirm')
+        else:
+            return redirect('payment')
+    return render(request, 'orders/payment.html', {
+        'form': ProfileForm(instance=user_profile)
+    })
+
+
+def confirm(request):
+    return render(request, 'orders/confirm.html')
