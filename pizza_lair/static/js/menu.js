@@ -28,6 +28,7 @@ $(document).ready(function() {
     });
 });
 
+
 $(document).ready(function() {
     $('.filter-btns').on('click', function(f) {
         f.preventDefault();
@@ -56,6 +57,7 @@ $(document).ready(function() {
         })
     });
 });
+
 
 $(document).ready(function() {
     $('.orderby-btn').on('click', function(g) {
