@@ -141,7 +141,6 @@ body {
  
 .filter-group-btns {
      position: relative;
-     padding-left: 5px;
  }
 
 .filter-btns {
@@ -156,11 +155,15 @@ body {
     border-radius: 5px;
 }
 
+.order-by-btns {
+
+}
+
 h5 {
     margin-left: 2px;
     font-size: 15px;
     padding-top: 10px;
-    padding-left: 200px;
+    padding-left: 100px;
 }
 
 .container-about-us, .order-items {
