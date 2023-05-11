@@ -76,6 +76,14 @@ def increase_quantity(request, product_id, price, quantity):
     return redirect('/orders/')
 
 
+def decrease_quantity(request, order_item_id, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    order = get_order(request)
+    remove_from_order(request, order, order_item, product.pk)
+    return redirect('/orders/')
+
+
 def remove_from_order(request, order, order_item, pk):
     if order_item.quantity == 1:
         order.items.remove(order_item)
@@ -85,14 +93,6 @@ def remove_from_order(request, order, order_item, pk):
         messages.info(request, 'Quantity decreased')
     order_item.save()
     order.save()
-
-
-def decrease_quantity(request, order_item_id, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    order_item = get_object_or_404(OrderItem, pk=order_item_id)
-    order = get_order(request)
-    remove_from_order(request, order, order_item, product.pk)
-    return redirect('/orders/')
 
 
 def empty_cart(request):
@@ -169,6 +169,7 @@ def create_order_item(product, price, quantity):
 
 
 def checkout(request):
+    user_order = get_order(request)
     user_profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=user_profile, data=request.POST)
@@ -182,11 +183,13 @@ def checkout(request):
             messages.error(request, 'There was an error updating the user.')
             return redirect('checkout')
     return render(request, 'orders/checkout.html', {
+        'user_order': user_order,
         'form': ProfileForm(instance=user_profile)
     })
 
 
 def payment(request):
+    user_order = get_order(request)
     user_profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=user_profile, data=request.POST)
@@ -200,9 +203,19 @@ def payment(request):
             messages.error(request, 'There was an error updating payment details.')
             return redirect('payment')
     return render(request, 'orders/payment.html', {
+        'user_order': user_order,
         'form': PaymentForm(instance=user_profile)
     })
 
 
 def confirm(request):
-    return render(request, 'orders/confirm.html')
+    user_order = get_order(request)
+    order_items = user_order.items.all()
+    return render(request, 'orders/confirm.html', {
+        'user_order': user_order,
+        'order_items': order_items
+    })
+
+
+def place_order(request):
+    return redirect('/')
