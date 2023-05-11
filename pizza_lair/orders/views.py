@@ -193,7 +193,7 @@ def payment(request):
         else:
             return redirect('payment')
     return render(request, 'orders/payment.html', {
-        'form': ProfileForm(instance=user_profile)
+        'form': PaymentForm(instance=user_profile)
     })
 
 

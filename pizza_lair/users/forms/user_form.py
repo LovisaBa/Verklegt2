@@ -23,7 +23,7 @@ class PaymentForm(ModelForm):
 
     class Meta:
         model = Payment
-        exclude = []
+        exclude = ['user']
         widgets = {
             'CardHolder': widgets.TextInput(attrs={'class': 'form-control'}),
             'CardNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
