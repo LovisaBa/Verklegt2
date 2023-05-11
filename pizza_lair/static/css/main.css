@@ -272,8 +272,9 @@ button, .btn ,.container-sm{
 
 #empty-cart{
     margin-top: 35px !important;
-    position: relative;
-    margin-left: 138px;
+    position: absolute;
+    right: 0;
+    margin-right: 115px;
 
 }
 
