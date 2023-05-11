@@ -58,6 +58,10 @@ body {
     margin-top: 20px;
 }
 
+.baby-order-parent {
+    background-color: #282931;
+}
+
 .order-overview {
     padding-top: 72px;
 }
@@ -182,6 +186,8 @@ h5 {
 
 .order-overview {
     position: absolute;
+    right: 0;
+    margin-right: 180px;
     height: 300px;
     padding-bottom:20px;
 
