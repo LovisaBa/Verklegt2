@@ -55,10 +55,12 @@
                 <p>Discount: {{ user_order.discount}}%</p>
                 <p>Full Price: {{ user_order.get_discount_price }}</p>
             </div>
+            {% if order_items %}
             <form action="{% url 'checkout' %}" method="get">
                 {% csrf_token %}
                 <button class="btn btn-dark mt-3" id="checkout-btn">Checkout</button>
             </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
