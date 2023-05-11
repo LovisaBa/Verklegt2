@@ -72,14 +72,17 @@ def increase_quantity(request, order_item_id, product_id):
     order_item = get_object_or_404(OrderItem, pk=order_item_id)
     order = get_order(request)
     add_to_order(request, order, order_item, product.pk)
+    messages.info(request, 'Quantity increased')
     return redirect('/orders/')
 
 
 def remove_from_order(request, order, order_item, pk):
-    if order.items.filter(product__pk=pk, price=order_item.price).exists():
+    if order_item.quantity == 1:
+        order.items.remove(order_item)
+        messages.info(request, 'Item removed')
+    else:
         order_item.quantity -= 1
-        if order_item.quantity == 1:
-            order.items.delete(order_item)
+        messages.info(request, 'Quantity decreased')
     order_item.save()
     order.save()
 
