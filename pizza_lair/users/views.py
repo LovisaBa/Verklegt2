@@ -34,10 +34,9 @@ def profile(request):
             user_profile.user = request.user
             user_profile.save()
             messages.success(request, 'Profile successfully updated!')
-            return redirect('profile')
         else:
             messages.error(request, 'There was an error updating the user.')
-            return redirect('profile')
+        return redirect('profile')
     return render(request, 'users/profile.html', {
         'form': ProfileForm(instance=user_profile)
     })
