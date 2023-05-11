@@ -127,11 +127,10 @@ body {
     position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
-    align-self: center;
     background:#282931;
     margin-top: 30px;
     padding-left:215px;
-    width: 120%;
+    width: 109.1%;
     overflow-x: hidden;
 }
 
@@ -155,15 +154,12 @@ body {
     border-radius: 5px;
 }
 
-.order-by-btns {
-
-}
 
 h5 {
     margin-left: 2px;
     font-size: 15px;
     padding-top: 10px;
-    padding-left: 100px;
+    padding-left: 50px;
 }
 
 .container-about-us, .order-items {
@@ -310,4 +306,15 @@ button, .btn ,.container-sm{
 
 #buy-offer-btn {
 
+}
+
+#plus-btn {
+    position: relative;
+    background-color: #34363E;
+}
+
+#minus-btn {
+    position: relative;
+    background-color: #34363E;
+    margin-right: 95px !important;
 }

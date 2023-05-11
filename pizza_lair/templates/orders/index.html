@@ -30,14 +30,16 @@
                 <div class="order-details col-md-5 px-5">
                     <p>{{ item.name|upper }} x {{ item.quantity }}</p>
                     <p>{{ item.price }}kr</p>
-                    <form action="{% url 'increase_quantity' item.id item.product.pk %}" method="post">
-                        {% csrf_token %}
-                        <button class="btn btn-dark mt-3" id="checkout-btn"><i class="fa fa-plus"></i></button>
-                    </form>
-                    <form action="{% url 'decrease_quantity' item.id item.product.pk %}" method="post">
-                        {% csrf_token %}
-                        <button class="btn btn-dark mt-3" id="checkout-btn"><i class="fa fa-minus"></i></button>
-                    </form>
+                    <div class="plus-button d-flex justify-content-between">
+                        <form action="{% url 'increase_quantity' item.id item.product.pk %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-dark mt-3" id="plus-btn"><i class="fa fa-plus"></i></button>
+                        </form>
+                        <form action="{% url 'decrease_quantity' item.id item.product.pk %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-dark mt-3" id="minus-btn"><i class="fa fa-minus"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
