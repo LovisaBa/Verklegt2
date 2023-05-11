@@ -17,8 +17,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     phoneNumber = models.PositiveIntegerField(validators=[
-        MaxValueValidator(9999999, "The Phone number cannot be longer than 7 characters"),
-        MinValueValidator(1000000, "The Phone number must be at least 7 characters long")]
+        MaxValueValidator(9999999, message="The Phone number cannot be longer than 7 characters"),
+        MinValueValidator(1000000, message="The Phone number must be at least 7 characters long")]
     )
     streetName = models.CharField(max_length=255)
     houseNumber = models.PositiveIntegerField()
@@ -35,7 +35,8 @@ class Payment(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     cardHolder = models.CharField(max_length=255)
     cardNr = models.PositiveIntegerField()
-    expDate = models.DateTimeField()
+    expDate = models.PositiveIntegerField()
+    ExpMont = models.PositiveIntegerField()
     cvv = models.PositiveIntegerField()
 
     def __str__(self):
