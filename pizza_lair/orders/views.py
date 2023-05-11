@@ -78,8 +78,8 @@ def increase_quantity(request, order_item_id, product_id):
 def remove_from_order(request, order, order_item, pk):
     if order.items.filter(product__pk=pk, price=order_item.price).exists():
         order_item.quantity -= 1
-    else:
-        order.items.remove(order_item)
+        if order_item.quantity == 1:
+            order.items.delete(order_item)
     order_item.save()
     order.save()
 
