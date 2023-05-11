@@ -8,6 +8,7 @@ from users.models import Profile
 
 
 def create_user(request):
+    """Allows a user to create a new user."""
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
@@ -16,13 +17,15 @@ def create_user(request):
             return redirect('login')
         else:
             messages.error(request, 'There was an error creating the user.')
-            return redirect('login')
+            return redirect('create_user')
     return render(request, 'users/create_user.html', {
         'form': UserCreationForm()
     })
 
 
 def profile(request):
+    """Returns a render of the users profile. It can create a profile
+        for a logged-in user, or allows a user to update their profile"""
     user_profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=user_profile, data=request.POST)
@@ -38,11 +41,3 @@ def profile(request):
     return render(request, 'users/profile.html', {
         'form': ProfileForm(instance=user_profile)
     })
-
-
-def index(request):
-    return render(request, 'users/index.html')
-
-
-def login(request):
-    return render(request, 'users/login.html')
