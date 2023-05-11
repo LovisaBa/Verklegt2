@@ -26,7 +26,7 @@
                 {% csrf_token %}
                 <button class="btn btn-dark mt-3">Login to add to cart</button>
             </form>
-            <form action="{% url 'create_user' %}" method="post">
+            <form action="{% url 'create_user' %}" method="get">
                 {% csrf_token %}
                 <button class="btn btn-dark mt-3">Register a new user</button>
             </form>
