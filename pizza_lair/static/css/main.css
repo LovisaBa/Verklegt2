@@ -59,7 +59,7 @@ body {
 }
 
 .order-overview {
-    padding-top: 50px;
+    padding-top: 72px;
 }
 
 .item-image {
@@ -171,6 +171,7 @@ h5 {
 }
 
 .order-text {
+    margin-top:10px;
     margin-left: 20px;
 }
 
@@ -180,7 +181,10 @@ h5 {
 }
 
 .order-overview {
+    position: absolute;
     height: 300px;
+    padding-bottom:20px;
+
 }
 
 
@@ -276,13 +280,15 @@ button, .btn ,.container-sm{
     position: relative;
     padding-top: 30px;
     margin-left: 35px !important;
+    margin-bottom: 10px;
 
 
 }
 
 .overview-title {
     padding-left: 20px;
-    margin-bottom: 10px;
+    position: absolute;
+    margin-top: 20px;
 }
 
 #chose-pizza {
@@ -290,7 +296,7 @@ button, .btn ,.container-sm{
 }
 
 #checkout-btn {
-    margin-left: 90px;
+    margin-left: 110px;
     background-color: #34363E;
     margin-bottom: 20px;
 }
