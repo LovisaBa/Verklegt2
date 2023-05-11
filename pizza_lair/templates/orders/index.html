@@ -2,17 +2,17 @@
 {% block content %}
     <div class="container-order">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-8">
+            <div class="cart-title">
+                <h1>My cart</h1>
+            </div>
+        </div>
+            <div class="col-md-1">
             <form action="{% url 'empty_cart' %}" method="post">
             {% csrf_token %}
             <button class="btn btn-dark mt-3" id="empty-cart">
                 Empty Cart </button>
             </form>
-        </div>
-        <div class="col-md-10">
-            <div class="cart-title">
-                <h1>My cart</h1>
-            </div>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="baby-order_item row">
         {% for item in order_items %}
 
-        <div class=" order-in-cart col-12 mb-3">
+        <div class=" order-in-cart col-12 mb-4">
             <div class="row align-items-center">
                 <div class="col-md-1">
                     <div class="item-image mt-2">
