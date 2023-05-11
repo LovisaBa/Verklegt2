@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1 id="pizza-header"> Offers</h1>
     <div class="offers">
         {% for offer in offers %}
             {% include "offers/_one_offer.html" with offfer=offer %}
