@@ -67,6 +67,31 @@ def add_to_cart(request, product_id):
     return redirect('/menu/')
 
 
+def increase_quantity(request, order_item_id, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    order = get_order(request)
+    add_to_order(request, order, order_item, product.pk)
+    return redirect('/orders/')
+
+
+def remove_from_order(request, order, order_item, pk):
+    if order.items.filter(product__pk=pk, price=order_item.price).exists():
+        order_item.quantity -= 1
+    else:
+        order.items.remove(order_item)
+    order_item.save()
+    order.save()
+
+
+def decrease_quantity(request, order_item_id, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    order_item = get_object_or_404(OrderItem, pk=order_item_id)
+    order = get_order(request)
+    remove_from_order(request, order, order_item, product.pk)
+    return redirect('/orders/')
+
+
 def empty_cart(request):
     order = get_order(request)
     order.delete()
