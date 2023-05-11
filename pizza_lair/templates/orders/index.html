@@ -31,7 +31,7 @@
                     <p>{{ item.name|upper }} x {{ item.quantity }}</p>
                     <p>{{ item.price }}kr</p>
                     <div class="plus-button d-flex justify-content-between">
-                        <form action="{% url 'increase_quantity' item.id item.product.pk %}" method="post">
+                        <form action="{% url 'increase_quantity' item.product.id item.price item.quantity %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-dark mt-3" id="plus-btn"><i class="fa fa-plus"></i></button>
                         </form>
