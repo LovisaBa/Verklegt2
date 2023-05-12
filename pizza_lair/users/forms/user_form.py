@@ -1,5 +1,6 @@
 from django.forms import ModelForm, widgets
 from users.models import Profile, Payment
+from creditcards.models import CardNumberField, CardExpiryField, SecurityCodeField
 
 
 class ProfileForm(ModelForm):
@@ -26,9 +27,8 @@ class PaymentForm(ModelForm):
         exclude = ['user']
         widgets = {
             'CardHolder': widgets.TextInput(attrs={'class': 'form-control'}),
-            'CardNumber': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'ExpMonth': widgets.Select(attrs={'class': 'form-control'}),
-            'ExpYear': widgets.Select(attrs={'class': 'form-control'}),
-            'cvv': widgets.NumberInput(attrs={'class': 'form-control'})
+            'CardNumber': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""}),
+            'ExpMonth': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""}),
+            'cvv': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""})
         }
 
