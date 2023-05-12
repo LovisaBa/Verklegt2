@@ -186,7 +186,9 @@ def checkout(request):
                 messages.error(request, phone_number_errors[0])
             else:
                 messages.error(request, 'There was an error updating the user.')
-        return redirect('checkout')
+        return render(request, 'orders/checkout.html', {
+            'form': form
+        })
     return render(request, 'orders/checkout.html', {
         'user_order': user_order,
         'form': ProfileForm(instance=user_profile)
@@ -231,6 +233,10 @@ def confirm(request):
     user_payment = Payment.objects.filter(user=request.user).first()
     user_order = get_order(request)
     order_items = user_order.items.all()
+    for order_item in order_items:
+        item = get_item_from_prod_id(order_item.product_id)
+        order_item.image = item.image
+        order_item.name = item.name
     return render(request, 'orders/confirm.html', {
         'user_order': user_order,
         'order_items': order_items,
