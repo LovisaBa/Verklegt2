@@ -12,6 +12,7 @@ class OrderItem(models.Model):
     name = models.CharField(max_length=255, blank=True)
     price = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField(default=1)
+    part_of_offer = models.BooleanField(default=False)
 
     def __str__(self):
         return f"prod_id{self.product.id} type{self.product.type} quantity{self.quantity} {self.price}kr."

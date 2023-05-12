@@ -60,7 +60,7 @@ def add_to_order(request, order, order_item, pk):
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     price = get_item_from_prod_id(product_id).price
-    order_item, created = create_order_item(product, price, 1)
+    order_item, created = create_order_item(product, price, 1, False)
     order = get_order(request)
     add_to_order(request, order, order_item, product.pk)
     messages.info(request, "Item added")
@@ -69,7 +69,7 @@ def add_to_cart(request, product_id):
 
 def increase_quantity(request, product_id, price, quantity):
     product = get_object_or_404(Product, pk=product_id)
-    order_item, create = create_order_item(product, price, quantity)
+    order_item, create = create_order_item(product, price, quantity, False)
     order = get_order(request)
     add_to_order(request, order, order_item, product.pk)
     messages.info(request, 'Quantity increased')
@@ -146,7 +146,7 @@ def add_offer(request, offer_id):
             pizzas.append(pizza)
         pizza_dict = count_pizzas(pizzas)
         for key in pizza_dict:
-            order_item, created = create_order_item(key.product, pizza_price, pizza_dict[key])
+            order_item, created = create_order_item(key.product, pizza_price, pizza_dict[key], True)
             add_to_order(request, order, order_item, key.product.pk)
         messages.success(request, 'Offer has been added to your order')
     return redirect('orders_index')
@@ -161,11 +161,12 @@ def count_pizzas(pizzas) -> dict:
     return pizza_dict
 
 
-def create_order_item(product, price, quantity):
+def create_order_item(product, price, quantity, deal):
     return OrderItem.objects.get_or_create(
                 product=product,
                 price=price,
-                quantity=quantity)
+                quantity=quantity,
+                part_of_offer=deal)
 
 
 def checkout(request):
@@ -226,4 +227,10 @@ def confirm(request):
 
 
 def place_order(request):
+    order = get_order(request)
+    order.ordered = True
+    order.save()
+    messages.success(request, "Thank you for ordering from REYK. "
+                              "You will receive a text when your pizzas "
+                              "are placed in the oven. Have a great day :)")
     return redirect('/')
