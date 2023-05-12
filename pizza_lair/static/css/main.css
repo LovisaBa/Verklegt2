@@ -24,6 +24,9 @@ body {
     justify-content: center;
 }
 
+.profile-div {
+    margin-left: 200px;
+}
 
 .baby-pizza, .baby-drink, .baby-offer, .baby-discount {
     background-color: #282931;
