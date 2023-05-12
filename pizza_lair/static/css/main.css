@@ -78,6 +78,11 @@ body {
     margin-left: 30px;
 }
 
+.item-image-confirm {
+    align-self: center;
+    margin-left: 171px !important;
+}
+
 .background-img {
    width: 109%;
 }
@@ -180,6 +185,10 @@ h5 {
 
 .order-details {
     margin-left: 100px;
+}
+
+.order-details-confirm {
+    margin-left: 180px;
 }
 
 .order-text, .checkout-text {
@@ -299,6 +308,23 @@ button, .btn ,.container-sm{
     margin-bottom: 10px;
 }
 
+.confirm-title {
+    margin-right: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirm-text {
+    margin-top: 30px;
+}
+
+#confirm-container {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+
 .overview-title {
     padding-left: 20px;
     position: absolute;
@@ -320,6 +346,16 @@ button, .btn ,.container-sm{
     margin-left: 110px;
     background-color: #34363E;
     margin-bottom: 20px;
+    display: grid;
+}
+
+#place-order-btn {
+    position: grid;
+    background-color: #34363E;
+    margin-right: 110px !important;
+    margin-bottom:50px;
+    margin-top: 26px !important;
+
 }
 
 .container-order {
@@ -346,7 +382,22 @@ button, .btn ,.container-sm{
 #back-btn {
     background-color: #34363E;
     margin-top: 20px;
+    display: grid;
+    width: 100px;
+    align-self: left;
 }
+
+#back-btn-last {
+    display: grid;
+    margin-left: 110px;
+    background-color: #34363E;
+    width: 110px;
+    align-self: left;
+    height: 40px;
+    margin-top: 25px;
+}
+
+
 
 
 
