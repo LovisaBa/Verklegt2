@@ -341,9 +341,14 @@ button, .btn ,.container-sm{
 }
 
 .payment-title {
-    position: absolute;
+    position: relative;
 }
 
+
+#back-btn {
+    background-color: #34363E;
+    margin-top: 20px;
+}
 
 
 
