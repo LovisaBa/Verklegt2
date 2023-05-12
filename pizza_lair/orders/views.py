@@ -218,11 +218,15 @@ def payment(request):
 
 
 def confirm(request):
+    user_profile = Profile.objects.filter(user=request.user).first()
+    user_payment = Payment.objects.filter(user=request.user).first()
     user_order = get_order(request)
     order_items = user_order.items.all()
     return render(request, 'orders/confirm.html', {
         'user_order': user_order,
-        'order_items': order_items
+        'order_items': order_items,
+        'user': user_profile,
+        'payment': user_payment
     })
 
 
