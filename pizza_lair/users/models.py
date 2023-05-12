@@ -36,7 +36,7 @@ class Profile(models.Model):
 
 class Payment(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    cardHolder = models.CharField(max_length=255)
+    cardHolder = models.CharField('card holder', max_length=255)
     cardNumber = CardNumberField('card number', null=True)
     expDate = CardExpiryField('expiration date', null=True)
     cvvCode = SecurityCodeField('security code', null=True)
