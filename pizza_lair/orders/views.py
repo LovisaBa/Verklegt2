@@ -207,20 +207,8 @@ def payment(request):
             messages.success(request, 'Payment information was successfully updated!')
             return redirect('confirm')
         else:
-            card_number_errors = form.errors.get('cardNumber')
-            exp_month_errors = form.errors.get('expMonth')
-            exp_year_errors = form.errors.get('expYear')
-            cvv_errors = form.errors.get('cvv')
-            if card_number_errors:
-                messages.error(request, card_number_errors[0])
-            elif exp_month_errors:
-                messages.error(request, exp_month_errors[0])
-            elif exp_year_errors:
-                messages.error(request, exp_year_errors[0])
-            elif cvv_errors:
-                messages.error(request, cvv_errors[0])
-            else:
-                messages.error(request, 'There was an error updating payment details.')
+            return render(request, 'orders/payment.html', {
+                'form': form})
         return redirect('payment')
     return render(request, 'orders/payment.html', {
         'user_order': user_order,
