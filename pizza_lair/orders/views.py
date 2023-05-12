@@ -180,12 +180,6 @@ def checkout(request):
             user_profile.save()
             messages.success(request, 'User was successfully updated!')
             return redirect('payment')
-        else:
-            phone_number_errors = form.errors.get('phoneNumber')
-            if phone_number_errors:
-                messages.error(request, phone_number_errors[0])
-            else:
-                messages.error(request, 'There was an error updating the user.')
         return render(request, 'orders/checkout.html', {
             'form': form
         })
