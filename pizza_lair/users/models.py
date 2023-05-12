@@ -1,9 +1,12 @@
-from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from creditcards.models import CardNumberField, CardExpiryField, SecurityCodeField
 
-# Create your models here.
+TODAY = datetime.now()
+YEAR = int(TODAY.strftime('%y'))
+EXP_YEAR = int(YEAR) + 10
 
 
 class Country(models.Model):
@@ -34,13 +37,9 @@ class Profile(models.Model):
 class Payment(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     cardHolder = models.CharField(max_length=255)
-    cardNumber = models.PositiveIntegerField(validators=[
-        MaxValueValidator(9999999999999999, message="The Card number cannot be longer than 16 characters"),
-        MinValueValidator(1000000000000000, message="The Card number must be at least 16 characters long")]
-    )
-    expMonth = models.PositiveIntegerField()
-    expYear = models.PositiveIntegerField()
-    cvv = models.PositiveIntegerField()
+    cardNumber = CardNumberField('card number', null=True)
+    expDate = CardExpiryField('expiration date', null=True)
+    cvvCode = SecurityCodeField('security code', null=True)
 
     def __str__(self):
         return f"CardHolder: {self.cardHolder}"
