@@ -209,7 +209,6 @@ def payment(request):
         else:
             return render(request, 'orders/payment.html', {
                 'form': form})
-        return redirect('payment')
     return render(request, 'orders/payment.html', {
         'user_order': user_order,
         'form': PaymentForm(instance=user_payment)
