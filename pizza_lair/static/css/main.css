@@ -24,6 +24,11 @@ body {
     justify-content: center;
 }
 
+.error-page {
+    margin-top: 250px;
+    text-align: center;
+}
+
 .profile-div {
     margin-left: 200px;
 }
