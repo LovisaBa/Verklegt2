@@ -34,10 +34,14 @@ class Profile(models.Model):
 class Payment(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     cardHolder = models.CharField(max_length=255)
-    cardNr = models.PositiveIntegerField()
-    expDate = models.PositiveIntegerField()
-    ExpMont = models.PositiveIntegerField()
+    cardNumber = models.PositiveIntegerField(validators=[
+        MaxValueValidator(9999999999999999, message="The Card number cannot be longer than 16 characters"),
+        MinValueValidator(1000000000000000, message="The Card number must be at least 16 characters long")]
+    )
+    expMonth = models.PositiveIntegerField()
+    expYear = models.PositiveIntegerField()
     cvv = models.PositiveIntegerField()
 
     def __str__(self):
         return f"CardHolder: {self.cardHolder}"
+

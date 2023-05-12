@@ -16,7 +16,7 @@ def create_user(request):
             messages.success(request, 'User successfully crated!')
             return redirect('login')
         else:
-            messages.error(request, 'There was an error creating the user.')
+            messages.error(request, 'Your password did not meet the requirements, please follow the instructions.')
             return redirect('create_user')
     return render(request, 'users/create_user.html', {
         'form': UserCreationForm()
@@ -35,7 +35,11 @@ def profile(request):
             user_profile.save()
             messages.success(request, 'Profile successfully updated!')
         else:
-            messages.error(request, 'There was an error updating the user.')
+            phone_number_errors = form.errors.get('phoneNumber')
+            if phone_number_errors:
+                messages.error(request, phone_number_errors[0])
+            else:
+                messages.error(request, 'There was an error updating the user.')
         return redirect('profile')
     return render(request, 'users/profile.html', {
         'form': ProfileForm(instance=user_profile)

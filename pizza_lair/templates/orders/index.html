@@ -30,6 +30,7 @@
                 <div class="order-details col-md-5 px-5">
                     <p>{{ item.name|upper }} x {{ item.quantity }}</p>
                     <p>{{ item.price }}kr</p>
+                    {% if not item.part_of_offer %}
                     <div class="plus-button d-flex justify-content-between">
                         <form action="{% url 'increase_quantity' item.product.id item.price item.quantity %}" method="post">
                             {% csrf_token %}
@@ -40,6 +41,7 @@
                             <button class="btn btn-dark mt-3" id="minus-btn"><i class="fa fa-minus"></i></button>
                         </form>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -55,10 +57,12 @@
                 <p>Discount: {{ user_order.discount}}%</p>
                 <p>Full Price: {{ user_order.get_discount_price }}</p>
             </div>
+            {% if order_items %}
             <form action="{% url 'checkout' %}" method="get">
                 {% csrf_token %}
                 <button class="btn btn-dark mt-3" id="checkout-btn">Checkout</button>
             </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
