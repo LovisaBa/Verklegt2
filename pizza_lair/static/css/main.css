@@ -1,393 +1,413 @@
 body {
-    padding-top: 55px;
-    background-color: #34363E;
-    color: white;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+	padding-top: 55px;
+	background-color: #34363e;
+	color: white;
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
-#pizza-header, #drink-header{
-    padding-left: 650px;
-    margin-top: 20px;
+#pizza-header,
+#drink-header {
+	padding-left: 650px;
+	margin-top: 20px;
 }
 
-.pizza-menu, .drink-menu, .offers, .discounts, .profile-div, .error-page {
-    background-color: #34363e;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    margin-bottom: 20px;
-    margin-left: 175px;
-    margin-right: 100px;
-    justify-content: center;
+.pizza-menu,
+.drink-menu,
+.offers,
+.discounts,
+.profile-div,
+.error-page {
+	background-color: #34363e;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	margin-bottom: 20px;
+	margin-left: 175px;
+	margin-right: 100px;
+	justify-content: center;
 }
 
 .error-page {
-    margin-top: 250px;
-    text-align: center;
+	margin-top: 250px;
+	text-align: center;
 }
 
 .profile-div {
-    margin-left: 200px;
+	margin-left: 200px;
 }
 
-.baby-pizza, .baby-drink, .baby-offer, .baby-discount {
-    background-color: #282931;
-    flex: 0 0 30%;
-    position: relative;
-    margin-top: 30px;
-    margin-left: 30px;
-    box-sizing: border-box;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
+.baby-pizza,
+.baby-drink,
+.baby-offer,
+.baby-discount {
+	background-color: #282931;
+	flex: 0 0 30%;
+	position: relative;
+	margin-top: 30px;
+	margin-left: 30px;
+	box-sizing: border-box;
+	align-items: center;
+	text-align: center;
+	justify-content: space-between;
 }
 
-.pizza-detail-child, .drink-detail-child, .right-hand, .left-hand {
-    background-color: #282931;
-    flex: 0 0 48%;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 10px;
-    box-sizing: border-box;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 4px;
+.pizza-detail-child,
+.drink-detail-child,
+.right-hand,
+.left-hand {
+	background-color: #282931;
+	flex: 0 0 48%;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 10px;
+	box-sizing: border-box;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	border-radius: 4px;
 }
 
-.baby-order_item, .order-overview {
-    display: inline-grid;
-    background-color: #282931;
-    margin-left: 30px;
-    text-align: left;
-    margin-top: 20px;
+.baby-order_item,
+.order-overview {
+	display: inline-grid;
+	background-color: #282931;
+	margin-left: 30px;
+	text-align: left;
+	margin-top: 20px;
 }
 
 .baby-order-parent {
-    background-color: #282931;
+	background-color: #282931;
 }
 
 .order-overview {
-    padding-top: 72px;
+	padding-top: 72px;
 }
 
 .item-image {
-    margin-left: 30px;
+	margin-left: 30px;
 }
 
 .item-image-confirm {
-    align-self: center;
-    margin-left: 171px !important;
+	align-self: center;
+	margin-left: 171px !important;
 }
 
 .background-img {
-   width: 109%;
+	width: 109%;
 }
 
 #cover-photo {
-    width: 100%;
+	width: 100%;
 }
 
 .container {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	min-height: 100vh;
 }
 
 .Copyright {
-    background-color: #282931;
-    margin-top: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: xx-small;
+	background-color: #282931;
+	margin-top: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: xx-small;
 }
 
 .container-footer {
-    background-color: #282931;
-    margin-top: auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 15px;
+	background-color: #282931;
+	margin-top: auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 15px;
 }
 
 .Toe {
-    flex: 0 0 30%;
-    padding-left: 200px;
+	flex: 0 0 30%;
+	padding-left: 200px;
 }
 .Toe p {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
-.menu-name, .offer-info, .discount-info {
-    font-size: large;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.menu-name,
+.offer-info,
+.discount-info {
+	font-size: large;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .about-us {
-    display: flex;
+	display: flex;
 }
 .about-child {
-    flex: auto;
-    align-content: space-between;
+	flex: auto;
+	align-content: space-between;
 }
-.about-img{
-    margin-right: 50px;
+.about-img {
+	margin-right: 50px;
 }
 
 .input-group {
-    position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background:#282931;
-    margin-top: 30px;
-    padding-left:215px;
-    width: 109.1%;
-    overflow-x: hidden;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #282931;
+	margin-top: 30px;
+	padding-left: 215px;
+	width: 109.1%;
+	overflow-x: hidden;
 }
 
- i {
-  color: white;
+i {
+	color: white;
 }
- 
+
 .filter-group-btns {
-     position: relative;
- }
+	position: relative;
+}
 
 .filter-btns {
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
+	margin-left: 5px;
+	border: none;
+	border-radius: 5px;
 }
 
 .orderby-btn {
-    border: none;
-    margin-left: 5px;
-    border-radius: 5px;
+	border: none;
+	margin-left: 5px;
+	border-radius: 5px;
 }
 
 h5 {
-    margin-left: 2px;
-    font-size: 15px;
-    padding-top: 10px;
-    padding-left: 50px;
+	margin-left: 2px;
+	font-size: 15px;
+	padding-top: 10px;
+	padding-left: 50px;
 }
 
-.container-about-us, .order-items {
-    padding-left: 150px;
+.container-about-us,
+.order-items {
+	padding-left: 150px;
 }
 
 .order-details {
-    margin-left: 100px;
+	margin-left: 100px;
 }
 
 .order-details-confirm {
-    margin-left: 180px;
+	margin-left: 180px;
 }
 
-.order-text, .checkout-title-confirm{
-    margin-top: 10px;
-    margin-left: 20px;
+.order-text,
+.checkout-title-confirm {
+	margin-top: 10px;
+	margin-left: 20px;
 }
 
 .checkout-title-confirm {
-    position: relative;
-    padding-bottom: 5px;
+	position: relative;
+	padding-bottom: 5px;
 }
 
-.right-hand, .left-hand .baby-order_item {
-    padding-top: 30px;
-    padding-bottom: 40px;
+.right-hand,
+.left-hand .baby-order_item {
+	padding-top: 30px;
+	padding-bottom: 40px;
 }
 
 .order-overview {
-    position: absolute;
-    right: 0;
-    margin-right: 120px;
-    height: 300px;
-    padding-bottom:30px;
+	position: absolute;
+	right: 0;
+	margin-right: 120px;
+	height: 300px;
+	padding-bottom: 30px;
 }
 
 .order-image {
-    width: 140px;
-    height: 140px;
+	width: 140px;
+	height: 140px;
 }
 
 #profile-img {
-    max-height: 320px;
-    width: 320px;
-    margin-top: 10px;
-    margin-right: 60px;
+	max-height: 320px;
+	width: 320px;
+	margin-top: 10px;
+	margin-right: 60px;
 }
 
-button, .btn ,.container-sm{
-    background-color: #282931;
+button,
+.btn,
+.container-sm {
+	background-color: #282931;
 }
 
 #form-btn {
-    position: relative;
-    width: 400px;
-    background-color: #34363E;
-    padding-left: 10px;
-    margin-top: 20px;
+	position: relative;
+	width: 400px;
+	background-color: #34363e;
+	padding-left: 10px;
+	margin-top: 20px;
 }
 
 .form {
-    width: 350px;
+	width: 350px;
 }
 
 .about-header {
-    text-indent: 1em
+	text-indent: 1em;
 }
 
 .navbar {
-    background-color: #282931
+	background-color: #282931;
 }
 
 .collapse {
-    margin-left: 40px;
+	margin-left: 40px;
 }
 
 .login-title {
-    padding-left:525px;
-    margin-top: 50px;
-    font-size: 30px;
+	padding-left: 525px;
+	margin-top: 50px;
+	font-size: 30px;
 }
 
 .create-user-title {
-    margin-top: 50px;
-    padding-left: 580px;
-    font-size: 30px;
+	margin-top: 50px;
+	padding-left: 580px;
+	font-size: 30px;
 }
 
 .form-row-login {
-    display: inline-grid;
-    padding-left: 560px;
-    width: 200px;
-    margin-left: 20px;
-    margin-top: 20px;
+	display: inline-grid;
+	padding-left: 560px;
+	width: 200px;
+	margin-left: 20px;
+	margin-top: 20px;
 }
 
 #login-button {
-    margin-top: 15px;
-
+	margin-top: 15px;
 }
 
 .form-row-register {
-    display: inline-grid;
-    padding-left: 450px;
-    margin-top: 20px;
-    padding-right: 380px;
+	display: inline-grid;
+	padding-left: 450px;
+	margin-top: 20px;
+	padding-right: 380px;
 }
 
 #create-button {
-    margin-top: 15px;
-    width: 100px;
-    margin-left: 190px;
+	margin-top: 15px;
+	width: 100px;
+	margin-left: 190px;
 }
 
 .order-in-cart {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
-#empty-cart{
-    margin-top: 35px !important;
-    position: absolute;
-    right: 0;
-    margin-right: 120px;
+#empty-cart {
+	margin-top: 35px !important;
+	position: absolute;
+	right: 0;
+	margin-right: 120px;
 }
 
 .cart-title {
-    position: relative;
-    padding-top: 30px;
-    margin-left: 35px !important;
-    margin-bottom: 10px;
+	position: relative;
+	padding-top: 30px;
+	margin-left: 35px !important;
+	margin-bottom: 10px;
 }
 
 .confirm-title {
-    margin-right: 20px;
-    margin-top: 20px;
-    text-align: center;
+	margin-right: 20px;
+	margin-top: 20px;
+	text-align: center;
 }
 
 .confirm-text {
-    margin-top: 100px;
+	margin-top: 100px;
 }
 
 #confirm-container {
-    text-align: left;
-    padding-top: 10px;
-    padding-left: 20px;
+	text-align: left;
+	padding-top: 10px;
+	padding-left: 20px;
 }
 
 .overview-title {
-    padding-left: 20px;
-    position: absolute;
-    margin-top: 20px;
+	padding-left: 20px;
+	position: absolute;
+	margin-top: 20px;
 }
 
-.checkout-title, .payment-title {
-    position: absolute;
-    top: 0;
-    padding-top: 100px;
-    padding-bottom: 1px;
+.checkout-title,
+.payment-title {
+	position: absolute;
+	top: 0;
+	padding-top: 100px;
+	padding-bottom: 1px;
 }
 
 #chose-pizza {
-    display: inline-grid;
+	display: inline-grid;
 }
 
 #checkout-btn {
-    margin-left: 110px;
-    background-color: #34363E;
-    margin-bottom: 20px;
-    display: grid;
+	margin-left: 110px;
+	background-color: #34363e;
+	margin-bottom: 20px;
+	display: grid;
 }
 
 #place-order-btn {
-    position: grid;
-    background-color: #34363E;
-    margin-right: 110px !important;
-    margin-bottom:50px;
-    margin-top: 26px !important;
+	position: grid;
+	background-color: #34363e;
+	margin-right: 110px !important;
+	margin-bottom: 50px;
+	margin-top: 26px !important;
 }
 
 .container-order {
-    margin-left: 200px;
+	margin-left: 200px;
 }
 
 .select-pizza {
-    height: 200px;
-    width: 200px;
+	height: 200px;
+	width: 200px;
 }
 
 #plus-btn {
-    position: relative;
-    background-color: #34363E;
+	position: relative;
+	background-color: #34363e;
 }
 
 #minus-btn {
-    position: relative;
-    background-color: #34363E;
-    margin-right: 95px !important;
+	position: relative;
+	background-color: #34363e;
+	margin-right: 95px !important;
 }
 
 #back-btn {
-    background-color: #34363E;
-    margin-top: 20px;
+	background-color: #34363e;
+	margin-top: 20px;
 }
 
 #back-btn-last {
-    display: grid;
-    margin-left: 110px;
-    background-color: #34363E;
-    width: 110px;
-    align-self: left;
-    height: 40px;
-    margin-top: 25px;
+	display: grid;
+	margin-left: 110px;
+	background-color: #34363e;
+	width: 110px;
+	align-self: left;
+	height: 40px;
+	margin-top: 25px;
 }
