@@ -27,7 +27,7 @@ class PaymentForm(ModelForm):
         exclude = ['user']
         widgets = {
             'CardHolder': widgets.TextInput(attrs={'class': 'form-control'}),
-            'CardNumber': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""}),
+            'CardNumber': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': "___"}),
             'ExpMonth': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""}),
             'cvv': widgets.TextInput(attrs={'class': 'form-control', 'placeholder': ""})
         }
