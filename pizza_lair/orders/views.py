@@ -231,6 +231,10 @@ def confirm(request):
     user_payment = Payment.objects.filter(user=request.user).first()
     user_order = get_order(request)
     order_items = user_order.items.all()
+    for order_item in order_items:
+        item = get_item_from_prod_id(order_item.product_id)
+        order_item.image = item.image
+        order_item.name = item.name
     return render(request, 'orders/confirm.html', {
         'user_order': user_order,
         'order_items': order_items,
