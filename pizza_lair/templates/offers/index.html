@@ -1,15 +1,20 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
+
     <h1 id="pizza-header"> Offers</h1>
     <div class="offers">
+
         {% for offer in offers %}
             {% include "offers/_one_offer.html" with offfer=offer %}
         {% endfor %}
+
     </div>
     <div class="discounts">
+
         {% for discount in discounts %}
             {% include "offers/_one_discount.html" with discount=discount %}
         {% endfor %}
+
     </div>
+    
 {% endblock %}

@@ -10,8 +10,7 @@
 			rel="stylesheet"
 			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 			crossorigin="anonymous"
-		/>
-		<!--Font Awesome -->
+		>
 		<script
 			src="https://kit.fontawesome.com/a31291cec1.js"
 			crossorigin="anonymous"
@@ -22,10 +21,10 @@
 	<body>
 		{% include 'navigation.html' %}
 		<div class="container">
-        {% include 'main/messages.html' %}
-            {% block content %}
+			{% include 'main/messages.html' %} 
+            {% block content %} 
             {% endblock %}
-        </div>
+		</div>
 		{% include 'footer.html' %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
 		<script

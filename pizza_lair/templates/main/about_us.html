@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
+
 <div class="container-about-us">
 	<div class="d-flex justify-content-end">
 		<div class="col-md-6 about-child about-txt bg-darkcyan mt-5">
@@ -25,12 +27,14 @@
 				experience is perfect.
 			</p>
 		</div>
+
 		<div class="col-md-6 ml-auto">
 			<img
 				class="about-img"
 				src="/{{ BASE_DIR }}static/images/about.png"
-			/>
+			>
 		</div>
 	</div>
 </div>
+
 {% endblock %}

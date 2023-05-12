@@ -2,8 +2,6 @@ from django.db import models
 from main.models import Product
 from menu.models import Pizza
 
-# Create your models here.
-
 
 class OffType(models.Model):
     type = models.TextField(max_length=255)
