@@ -9,7 +9,7 @@ TODO
 ---------------------------------------------------------------------------------------------------
 LAGA
 
-- Takka til að breyta magni á vöru í körfu. Ef magn fer í 0, þá færlæga order_item úr order
+- taka takka á items úr offer svo það sé ekki hægt að breyta magni
 
 ---------------------------------------------------------------------------------------------------
 
@@ -22,3 +22,6 @@ KRÖFUR
 - Credit car should be 16-digits long, contain an expiry date and a CVC number. Should also include validation in the form
 - 3rd view of the checkout should be a read-only confirmation of the products and prices.
 - Final view is a confirmation step. Should display some indication that the purchase has been succesfull.
+
+
+pip freeze > requirements.txt       
