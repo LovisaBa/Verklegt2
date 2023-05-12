@@ -174,8 +174,8 @@ h5 {
     margin-left: 100px;
 }
 
-.order-text, .checkout-text {
-    margin-top:10px;
+.order-text {
+    margin-top: 10px;
     margin-left: 20px;
 }
 
@@ -190,10 +190,7 @@ h5 {
     margin-right: 180px;
     height: 300px;
     padding-bottom:30px;
-
 }
-
-
 
 .order-image {
     width: 140px;
@@ -298,11 +295,11 @@ button, .btn ,.container-sm{
 }
 
 .checkout-title, .payment-title {
-    position: relative;
+    position: absolute;
+    top: 0;
+    padding-top: 100px;
     padding-bottom: 1px;
 }
-
-
 
 #chose-pizza {
     display: inline-grid;
@@ -333,7 +330,6 @@ button, .btn ,.container-sm{
     background-color: #34363E;
     margin-right: 95px !important;
 }
-
 
 #back-btn {
     background-color: #34363E;
