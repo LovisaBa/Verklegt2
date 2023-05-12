@@ -48,6 +48,8 @@ We recommend running the website on either Chrome or Firefox, the site was teste
 
 ENJOY! :)
 
+Github repository link: https://github.com/LovisaBa/Verklegt2.git
+
 Group 19:
 Esther Ír Steinarsdóttir
 Lovísa Baldvinsdóttir
