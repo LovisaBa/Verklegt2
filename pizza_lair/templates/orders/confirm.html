@@ -55,7 +55,7 @@
                 <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
                 <p>{{ payment.cvv }}</p>
             </div>
-            <a href="/orders/payment/" class="btn btn-dark mt-3">Back</a>
+            <a href="/orders/payment/" class="btn btn-dark" id="back-btn">Back</a>
             <form action="{% url 'place_order' %}" method="post">
                 {% csrf_token %}
                 <button class="btn btn-dark mt-3" id="checkout-btn">Place Order</button>

@@ -297,15 +297,9 @@ button, .btn ,.container-sm{
     margin-top: 20px;
 }
 
-.checkout-title {
+.checkout-title, .payment-title {
     position: relative;
     padding-bottom: 1px;
-}
-
-.checkout-text {
-    position: relative;
-    padding-bottom: 50px;
-    align-self: flex-start;
 }
 
 
@@ -339,3 +333,12 @@ button, .btn ,.container-sm{
     background-color: #34363E;
     margin-right: 95px !important;
 }
+
+
+#back-btn {
+    background-color: #34363E;
+    margin-top: 20px;
+}
+
+
+

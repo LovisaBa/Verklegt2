@@ -6,7 +6,7 @@
             <form class="form row" method="post">
                 {% csrf_token %}
                 {{ form }}
-                <a href="/orders/" class="btn btn-dark">back</a>
+                <a href="/orders/" class="btn btn-dark" id="back-btn">Back</a>
                 <input id="form-btn" type="submit" class="btn btn-dark" value="Next"/>
             </form>
         </div>
