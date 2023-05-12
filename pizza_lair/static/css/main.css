@@ -190,7 +190,7 @@ h5 {
 .order-overview {
     position: absolute;
     right: 0;
-    margin-right: 180px;
+    margin-right: 120px;
     height: 300px;
     padding-bottom:30px;
 }
@@ -281,7 +281,7 @@ button, .btn ,.container-sm{
     margin-top: 35px !important;
     position: absolute;
     right: 0;
-    margin-right: 180px;
+    margin-right: 120px;
 }
 
 .cart-title {
