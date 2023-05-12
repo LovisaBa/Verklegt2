@@ -382,9 +382,6 @@ button, .btn ,.container-sm{
 #back-btn {
     background-color: #34363E;
     margin-top: 20px;
-    display: grid;
-    width: 100px;
-    align-self: left;
 }
 
 #back-btn-last {
