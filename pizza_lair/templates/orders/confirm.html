@@ -25,8 +25,8 @@
                     <h3>Registered Payment</h3>
                     <p>Cardholder: {{ payment.cardHolder }}</p>
                     <p>Card number: {{ payment.cardNumber }}</p>
-                    <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
-                    <p>{{ payment.cvv }}</p>
+                    <p>Expiry date: {{ payment.expDate }}</p>
+                    <p>cvv: {{ payment.cvvCode }}</p>
                 </div>
                 <div class="plus-button d-flex justify-content-between">
                 <a href="/orders/payment/" class="btn btn-dark" id="back-btn-last">Back</a>
