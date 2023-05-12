@@ -195,25 +195,34 @@ def checkout(request):
 
 def payment(request):
     user_order = get_order(request)
-    user_profile = Profile.objects.filter(user=request.user).first()
+    user_payment = Payment.objects.filter(user=request.user).first()
     if request.method == 'POST':
-        form = PaymentForm(instance=user_profile, data=request.POST)
+        form = PaymentForm(instance=user_payment, data=request.POST)
         if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.user = request.user
-            user_profile.save()
+            user_payment = form.save(commit=False)
+            user_payment.user = request.user
+            user_payment.save()
             messages.success(request, 'Payment information was successfully updated!')
             return redirect('confirm')
         else:
             card_number_errors = form.errors.get('cardNumber')
+            exp_month_errors = form.errors.get('expMonth')
+            exp_year_errors = form.errors.get('expYear')
+            cvv_errors = form.errors.get('cvv')
             if card_number_errors:
                 messages.error(request, card_number_errors[0])
+            elif exp_month_errors:
+                messages.error(request, exp_month_errors[0])
+            elif exp_year_errors:
+                messages.error(request, exp_year_errors[0])
+            elif cvv_errors:
+                messages.error(request, cvv_errors[0])
             else:
                 messages.error(request, 'There was an error updating payment details.')
         return redirect('payment')
     return render(request, 'orders/payment.html', {
         'user_order': user_order,
-        'form': PaymentForm(instance=user_profile)
+        'form': PaymentForm(instance=user_payment)
     })
 
 
