@@ -2,11 +2,9 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Pizza, Drink
 
-# Create your views here.
-
 
 def index(request):
-    """Renders the menu site. Includes search and filter methods"""
+    """Renders the menu site. Includes search and filter methods."""
     if 'pizza_filter' in request.GET:
         data = get_pizzas_by_type(request)
         return JsonResponse({'data': data})

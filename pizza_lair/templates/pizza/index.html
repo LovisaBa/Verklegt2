@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
     <div class="input-group">
         <form class="d-flex">
@@ -13,6 +14,7 @@
                 </button>
             </div>
         </form>
+
         <h5>Filter by:</h5>
         <div class="filter-group-btns">
             <button class="filter-btns btn btn-dark" type="button" id="Spicy">Spicy
@@ -31,6 +33,7 @@
                 <i class="fa-solid fa-arrows-rotate"></i>
             </button>
         </div>
+
         <h5>Order by:</h5>
         <div class="order-by-btns">
             <button class="price orderby-btn btn btn-dark" type="button" >
@@ -47,9 +50,11 @@
         {% for pizza in pizzas %} {% include "pizza/_one_pizza.html" with pizza=pizza %}
         {% endfor %}
     </div>
+
     <h1 id="drink-header">Drinks</h1>
     <div class="drink-menu">
         {% for drink in drinks %} {% include "pizza/_one_drink.html" with drink=drink %}
         {% endfor %}
     </div>
+    
 {% endblock %}

@@ -4,8 +4,6 @@ from django.shortcuts import render, redirect
 from users.forms.user_form import ProfileForm
 from users.models import Profile
 
-# Create your views here.
-
 
 def create_user(request):
     """Allows a user to create a new user."""

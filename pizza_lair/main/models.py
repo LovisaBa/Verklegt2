@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class ProdType(models.Model):
     type = models.TextField(max_length=255)

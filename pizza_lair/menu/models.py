@@ -1,8 +1,6 @@
 from django.db import models
 from main.models import Product
 
-# Create your models here.
-
 
 class PizzaType(models.Model):
     type = models.CharField(max_length=255)
