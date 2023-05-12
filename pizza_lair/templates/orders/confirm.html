@@ -2,64 +2,67 @@
 {% block content %}
     <div class="profile-div">
         <div class="row">
-            <div class="col-md-8">
-                <div class="cart-title">
-                    <h1>My cart</h1>
+            <div class="col-md-12">
+                <div class="confirm-title">
+                    <h2>My cart</h2>
                 </div>
             </div>
         </div>
 
-
-        <div class="right-hand row">
-            <div class="checkout-title">
-                <h2>Overview: </h2>
+        <div class="row col-12">
+            <div class="left-hand" id="confirm-container">
+                <div class=confirm-text">
+                    <h2>Your information</h2>
+                    <p>Name: {{ user.name }}</p>
+                    <p>Phone number: {{ user.phoneNumber }}</p>
+                    <p>Street name: {{ user.streetName }}</p>
+                    <p>House number: {{ user.houseNumber }}</p>
+                    <p>Zip code: {{ user.zipCode }}</p>
+                    <p>City: {{ user.city }}</p>
+                    <p>Country: {{ user.country }}</p>
+                </div>
+                <div class="confirm-text">
+                    <h3>Registered Payment</h3>
+                    <p>Cardholder: {{ payment.cardHolder }}</p>
+                    <p>Card number: {{ payment.cardNumber }}</p>
+                    <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
+                    <p>{{ payment.cvv }}</p>
+                </div>
+                <div class="plus-button d-flex justify-content-between">
+                <a href="/orders/payment/" class="btn btn-dark" id="back-btn-last">Back</a>
+                <form action="{% url 'place_order' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn btn-dark mt-3" id="place-order-btn">Place Order</button>
+                </form>
+                </div>
             </div>
-            <div class="checkout-text">
-                <p>Price: {{ user_order.get_price }}</p>
-                <p>Discount: {{ user_order.discount}}%</p>
-                <p>Full Price: {{ user_order.get_discount_price }}</p>
-            </div>
-            {% for item in order_items %}
 
-            <div class="form row">
-                <div class="">
+            <div class="right-hand">
+                <div class="checkout-title">
+                    <h2>Overview: </h2>
+                </div>
+                <div class="checkout-text">
+                    <p>Price: {{ user_order.get_price }}</p>
+                    <p>Discount: {{ user_order.discount}}%</p>
+                    <p>Full Price: {{ user_order.get_discount_price }}</p>
+                </div>
+                {% for item in order_items %}
+                <div class="form row">
                     <div class="">
-                        <div class="item-image">
-                            <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }}" width="100%">
+                        <div class="">
+                            <div class="item-image-confirm">
+                                <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }}" width="100%">
+                            </div>
+                        </div>
+                        <div class="order-details-confirm">
+                            <p>{{ item.name|upper }} x {{ item.quantity }}</p>
+                            <p>{{ item.price }}kr</p>
                         </div>
                     </div>
-                    <div class="order-details">
-                        <p>{{ item.name|upper }} x {{ item.quantity }}</p>
-                        <p>{{ item.price }}kr</p>
-                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
-
-        <div class="left-hand row">
-            <div class="checkout-text">
-                <h1>Your information</h1>
-                <p>{{ user.name }}</p>
-                <p>{{ user.phoneNumber }}</p>
-                <p>{{ user.streetName }}</p>
-                <p>{{ user.houseNumber }}</p>
-                <p>{{ user.zipCode }}</p>
-                <p>{{ user.city }}</p>
-                <p>{{ user.country }}</p>
-            </div>
-            <div class="checkout-text">
-                <h1>Registered Payment</h1>
-                <p>{{ payment.cardHolder }}</p>
-                <p>{{ payment.cardNumber }}</p>
-                <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
-                <p>{{ payment.cvv }}</p>
-            </div>
-            <a href="/orders/payment/" class="btn btn-dark" id="back-btn">Back</a>
-            <form action="{% url 'place_order' %}" method="post">
-                {% csrf_token %}
-                <button class="btn btn-dark mt-3" id="checkout-btn">Place Order</button>
-            </form>
         </div>
     </div>
 {% endblock %}
+
