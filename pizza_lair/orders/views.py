@@ -181,6 +181,7 @@ def checkout(request):
             messages.success(request, 'User was successfully updated!')
             return redirect('payment')
         return render(request, 'orders/checkout.html', {
+            'user_order': user_order,
             'form': form
         })
     return render(request, 'orders/checkout.html', {
@@ -202,6 +203,7 @@ def payment(request):
             return redirect('confirm')
         else:
             return render(request, 'orders/payment.html', {
+                'user_order': user_order,
                 'form': form})
     return render(request, 'orders/payment.html', {
         'user_order': user_order,
