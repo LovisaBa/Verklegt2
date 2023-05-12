@@ -197,7 +197,7 @@ def payment(request):
     user_order = get_order(request)
     user_profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=user_profile, data=request.POST)
+        form = PaymentForm(instance=user_profile, data=request.POST)
         if form.is_valid():
             user_profile = form.save(commit=False)
             user_profile.user = request.user
@@ -205,7 +205,7 @@ def payment(request):
             messages.success(request, 'Payment information was successfully updated!')
             return redirect('confirm')
         else:
-            card_number_errors = form.errors.get('cardNr')
+            card_number_errors = form.errors.get('cardNumber')
             if card_number_errors:
                 messages.error(request, card_number_errors[0])
             else:

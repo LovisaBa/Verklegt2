@@ -16,7 +16,7 @@ def create_user(request):
             messages.success(request, 'User successfully crated!')
             return redirect('login')
         else:
-            messages.error(request, 'There was an error creating the user.')
+            messages.error(request, 'Your password did not meet the requirements, please follow the instructions.')
             return redirect('create_user')
     return render(request, 'users/create_user.html', {
         'form': UserCreationForm()
