@@ -31,18 +31,27 @@ Here are some extra requirements we did that was not part of the assignment requ
 - A user does not need to input profile information when checking out, user can have a profile that
 auto-fills in profile when checking out from cart.
 - A user can navigate to an about us page.
-- A user can choose a discount on specific dates of the month or week.
+- An overview of the order is visible on all steps of the checkout process
+- A user can choose a discount on a specified day of the week or month.
+- A link to an instagram page for the resturant.
+- A link to the resturants location on Google Maps.
 
 To be able to do the next steps your terminal source needs to be in the pizza_lair folder:
 
-To start the application you need to run "pip -r requirements.txt" in the terminal to 
-install all required applications for the virtual environment
+To start the application you need to run "pip install -r requirements.txt" in the terminal to 
+install all required applications for the virtual environment.
 
-??source??
-
-Lastly you need to run "python manage.py runserver" in the terminal to start the server.
+Lastly you need to run "python manage.py runserver --insecure" in the terminal to start the server.
 Now you will need to click the link in the terminal to the website.
 
 We recommend running the website on either Chrome or Firefox, the site was tested on those browsers.
 
 ENJOY! :)
+
+Github repository link: https://github.com/LovisaBa/Verklegt2.git
+
+Group 19:
+Esther Ír Steinarsdóttir
+Lovísa Baldvinsdóttir
+Valmar Guttormsson
+Þóra Lilja Bergmann

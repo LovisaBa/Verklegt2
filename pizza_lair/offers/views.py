@@ -34,7 +34,7 @@ def get_discount(request, offer_id) -> Discount:
     })
 
 
-def get_offer_by_id(offer_id):
+def get_offer_by_id(offer_id) -> PizzaOffer:
     """Returns an offer from the offer id. If that item is
         not found it returns a 404 error."""
     return get_object_or_404(PizzaOffer, pk=offer_id)

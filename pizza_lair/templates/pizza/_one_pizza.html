@@ -1,7 +1,14 @@
+
 <div class="baby-pizza justify-content center">
-    <a href="/menu/{{ pizza.id }}" class="font-weight-normal text-reset text-decoration-none">
+    <a 
+        href="/menu/{{ pizza.id }}" 
+        class="font-weight-normal text-reset text-decoration-none"
+    >
         <div class="menu-image">
-            <img src="/{{ BASE_DIR }}static/images/{{pizza.pizzaimage_set.first.image}}" alt="{{ pizza.description }} " width="100%" />
+            <img 
+                src="/{{ BASE_DIR }}static/images/{{pizza.pizzaimage_set.first.image}}" 
+                alt="{{ pizza.description }} " width="100%" 
+            >
         </div>
         <div class="menu-name">
             {{ pizza.name|upper }}

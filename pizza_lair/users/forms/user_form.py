@@ -1,6 +1,5 @@
 from django.forms import ModelForm, widgets
 from users.models import Profile, Payment
-from creditcards.models import CardNumberField, CardExpiryField, SecurityCodeField
 
 
 class ProfileForm(ModelForm):
@@ -31,4 +30,3 @@ class PaymentForm(ModelForm):
             'ExpMonth': widgets.TextInput(attrs={'class': 'form-control'}),
             'cvv': widgets.TextInput(attrs={'class': 'form-control'})
         }
-

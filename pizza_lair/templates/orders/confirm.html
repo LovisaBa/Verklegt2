@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <div class="profile-div">
         <div class="row">
             <div class="col-md-12">
@@ -11,7 +12,7 @@
 
         <div class="row col-12">
             <div class="left-hand" id="confirm-container">
-                <div class=confirm-text">
+                <div class="confirm-text">
                     <h2>Your information</h2>
                     <p>Name: {{ user.name }}</p>
                     <p>Phone number: {{ user.phoneNumber }}</p>
@@ -21,18 +22,24 @@
                     <p>City: {{ user.city }}</p>
                     <p>Country: {{ user.country }}</p>
                 </div>
+
                 <div class="confirm-text">
                     <h3>Registered Payment</h3>
                     <p>Cardholder: {{ payment.cardHolder }}</p>
                     <p>Card number: {{ payment.cardNumber }}</p>
-                    <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
-                    <p>{{ payment.cvv }}</p>
+                    <p>Expiry date: {{ payment.expDate }}</p>
+                    <p>cvv: {{ payment.cvvCode }}</p>
                 </div>
+
                 <div class="plus-button d-flex justify-content-between">
-                <a href="/orders/payment/" class="btn btn-dark" id="back-btn-last">Back</a>
+                <a href="/orders/payment/" class="btn btn-dark" id="back-btn-last">
+                    Back
+                </a>
                 <form action="{% url 'place_order' %}" method="post">
                     {% csrf_token %}
-                    <button class="btn btn-dark mt-3" id="place-order-btn">Place Order</button>
+                    <button class="btn btn-dark mt-3" id="place-order-btn">
+                        Place Order
+                    </button>
                 </form>
                 </div>
             </div>
@@ -45,22 +52,26 @@
                     <p>Full Price: {{ user_order.get_discount_price }}</p>
                 </div>
                 {% for item in order_items %}
-                <div class="form row">
-                    <div>
+                    <div class="form row">
                         <div>
-                            <div class="item-image-confirm">
-                                <img class="order-image" src="/{{ BASE_DIR }}static/images/{{item.image}}" alt="{{ item.description }}" width="100%">
+                            <div>
+                                <div class="item-image-confirm">
+                                    <img 
+                                        class="order-image" 
+                                        src="/{{ BASE_DIR }}static/images/{{item.image}}" 
+                                        alt="{{ item.description }}" 
+                                        width="100%"
+                                    >
+                                </div>
+                            </div>
+                            <div class="order-details-confirm">
+                                <p>{{ item.name|upper }} x {{ item.quantity }}</p>
+                                <p>{{ item.price }}kr</p>
                             </div>
                         </div>
-                        <div class="order-details-confirm">
-                            <p>{{ item.name|upper }} x {{ item.quantity }}</p>
-                            <p>{{ item.price }}kr</p>
-                        </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 {% endblock %}
-
