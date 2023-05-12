@@ -10,11 +10,11 @@
                 <input id="form-btn" type="submit" class="btn btn-dark" value="pay"/>
             </form>
         </div>
-        <div class="order-overview col-md-3">
-            <div class="overview-title">
+        <div class="left-hand row">
+            <div class="payment-title">
                 <h2>Overview: </h2>
             </div>
-        <div class="order-text">
+        <div class="payment-text">
             <p>Price: {{ user_order.get_price }}</p>
             <p>Discount: {{ user_order.discount}}%</p>
             <p>Full Price: {{ user_order.get_discount_price }}</p>
