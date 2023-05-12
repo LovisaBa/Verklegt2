@@ -38,7 +38,7 @@ auto-fills in profile when checking out from cart.
 
 To be able to do the next steps your terminal source needs to be in the pizza_lair folder:
 
-To start the application you need to run "pip -r requirements.txt" in the terminal to 
+To start the application you need to run "pip install -r requirements.txt" in the terminal to 
 install all required applications for the virtual environment.
 
 Lastly you need to run "python manage.py runserver --insecure" in the terminal to start the server.
