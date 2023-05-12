@@ -181,8 +181,12 @@ def checkout(request):
             messages.success(request, 'User was successfully updated!')
             return redirect('payment')
         else:
-            messages.error(request, 'There was an error updating the user.')
-            return redirect('checkout')
+            phone_number_errors = form.errors.get('phoneNumber')
+            if phone_number_errors:
+                messages.error(request, phone_number_errors[0])
+            else:
+                messages.error(request, 'There was an error updating the user.')
+        return redirect('checkout')
     return render(request, 'orders/checkout.html', {
         'user_order': user_order,
         'form': ProfileForm(instance=user_profile)
@@ -201,8 +205,12 @@ def payment(request):
             messages.success(request, 'Payment information was successfully updated!')
             return redirect('confirm')
         else:
-            messages.error(request, 'There was an error updating payment details.')
-            return redirect('payment')
+            card_number_errors = form.errors.get('cardNr')
+            if card_number_errors:
+                messages.error(request, card_number_errors[0])
+            else:
+                messages.error(request, 'There was an error updating payment details.')
+        return redirect('payment')
     return render(request, 'orders/payment.html', {
         'user_order': user_order,
         'form': PaymentForm(instance=user_profile)
