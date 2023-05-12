@@ -171,7 +171,6 @@ body {
     border-radius: 5px;
 }
 
-
 h5 {
     margin-left: 2px;
     font-size: 15px;
@@ -191,9 +190,14 @@ h5 {
     margin-left: 180px;
 }
 
-.order-text, .checkout-text {
-    margin-top:10px;
+.order-text, .checkout-title-confirm{
+    margin-top: 10px;
     margin-left: 20px;
+}
+
+.checkout-title-confirm {
+    position: relative;
+    padding-bottom: 5px;
 }
 
 .right-hand, .left-hand .baby-order_item {
@@ -207,10 +211,7 @@ h5 {
     margin-right: 120px;
     height: 300px;
     padding-bottom:30px;
-
 }
-
-
 
 .order-image {
     width: 140px;
@@ -324,7 +325,6 @@ button, .btn ,.container-sm{
     padding-left: 20px;
 }
 
-
 .overview-title {
     padding-left: 20px;
     position: absolute;
@@ -332,11 +332,11 @@ button, .btn ,.container-sm{
 }
 
 .checkout-title, .payment-title {
-    position: relative;
+    position: absolute;
+    top: 0;
+    padding-top: 100px;
     padding-bottom: 1px;
 }
-
-
 
 #chose-pizza {
     display: inline-grid;
@@ -355,7 +355,6 @@ button, .btn ,.container-sm{
     margin-right: 110px !important;
     margin-bottom:50px;
     margin-top: 26px !important;
-
 }
 
 .container-order {
@@ -378,7 +377,6 @@ button, .btn ,.container-sm{
     margin-right: 95px !important;
 }
 
-
 #back-btn {
     background-color: #34363E;
     margin-top: 20px;
@@ -393,8 +391,3 @@ button, .btn ,.container-sm{
     height: 40px;
     margin-top: 25px;
 }
-
-
-
-
-
