@@ -57,9 +57,10 @@
             <div class="payment-info">
                 <h1>Registered Payment</h1>
                 <p>{{ payment.cardHolder }}</p>
-                <p>{{ payment.cardNr }}</p>
+                <p>{{ payment.cardNumber }}</p>
                 <p>{{ payment.expMonth }} {{ payment.expYear }}</p>
                 <p>{{ payment.cvv }}</p>
             </div>
+        <a href="/orders/payment/" class="btn btn-dark">Back</a>
         </div>
 {% endblock %}
